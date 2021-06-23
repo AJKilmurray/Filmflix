@@ -1,0 +1,460 @@
+/*
+================
+
+    FONTS
+
+================
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* 
+================
+
+    VARIABLES
+
+================
+*/
+
+:root {
+    /* Filmflix Color Palette */
+    --filmflix-red: #db0000;
+    --filmflix-black: #000000;
+    --filmflix-white: #ffffff;
+    --filmflix-gray: #564d4d;
+    --filmflix-dark-red: #831010;
+
+    /* Primary Color Shades [--filmflix-red] */
+    --primary-dark-1: #160000;
+    --primary-dark-2: #2c0000;
+    --primary-dark-3: #420000;
+    --primary-dark-4: #580000;
+    --primary-dark-5: #6e0000;
+    --primary-dark-6: #830000;
+    --primary-dark-7: #990000;
+    --primary-dark-8: #af0000;
+    --primary-dark-9: #c50000;
+    --primary: #db0000;
+    --primary-light-1: #df1a1a;
+    --primary-light-2: #e23333;
+    --primary-light-3: #e64d4d;
+    --primary-light-4: #e96666;
+    --primary-light-5: #ed8080;
+    --primary-light-6: #f19999;
+    --primary-light-7: #f4b3b3;
+    --primary-light-8: #f8cccc;
+    --primary-light-9: #fbe6e6;
+
+    /* White --> Black */
+    --white: #fff;
+    --gray-1: #e6e6e6;
+    --gray-2: #cccccc;
+    --gray-3: #b3b3b3;
+    --gray-4: #999999;
+    --gray-5: #808080;
+    --gray-6: #666666;
+    --gray-7: #4c4c4c;
+    --gray-8: #333333;
+    --gray-9: #191919;
+    --black: #000;
+
+    /* Green & Red Buttons */
+    --green-1: #25bb32;
+    --green-2: #6be675;
+    --red-1: #bb2525;
+    --red-2: #e66b6b;
+
+    /* Fonts */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Poppins', sans-serif;
+
+    /* Transition */
+    --transition: all 0.3s linear;
+
+    /* Other */
+    --spacing: 0.1rem;
+    --radius: 0.25rem;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --max-width: 1170px;
+}
+
+/* 
+===============
+
+    Global
+    Styles
+
+===============
+*/
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background: var(--filmflix-white);
+    line-height: 1.5;
+    font-size: 0.875rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    letter-spacing: var(--spacing);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-primary);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 0.875rem;
+}
+
+p {
+    margin-bottom: 1.25rem;
+    color: var(--gray-4);
+}
+
+@media screen and (min-width: 800px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    body {
+        font-size: 1rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        line-height: 1;
+    }
+}
+
+/* 
+=================
+
+    Global
+    Classes
+
+=================
+*/
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+.btn {
+    border: 0;
+    background: transparent;
+    font-size: 1.25rem;
+    border-radius: var(--radius);
+    box-shadow: var(--light-shadow);
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    color: var(--filmflix-white);
+    background: var(--primary);
+}
+
+.preloader {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: var(--filmflix-black);
+    position: fixed;
+    z-index: 100;
+}
+
+.hide-preloader {
+    display: none !important;
+    z-index: -100 !important;
+}
+
+.text-color-animation {
+    animation: text-highlight-color 4s infinite;
+}
+
+.delayed-text-color-animation {
+    animation: text-highlight-color 4s infinite;
+    animation-delay: 2s;
+}
+
+.red-highlight {
+    color: var(--primary);
+}
+
+/* Navbar */
+
+.navbar {
+    background: var(--filmflix-white);
+}
+
+.nav-container {
+    padding: 15px;
+    display: block;
+}
+
+.nav-heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-toggle {
+    background: transparent;
+    border: 0;
+}
+
+.hamburger-menu {
+    color: var(--filmflix-black);
+    cursor: pointer;
+    animation: entrance 0.6s ease-out both;
+}
+
+.navigation {
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.show-links {
+    height: 0;
+}
+
+.nav-list-item {
+    display: block;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.nav-link {
+    color: var(--filmflix-black);
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    background: var(--primary);
+    color: var(--filmflix-white);
+}
+
+.nav-link:active {
+    background: var(--primary-light-4);
+}
+
+.active {
+    background: var(--primary);
+    color: var(--filmflix-white);
+}
+
+.active:hover {
+    color: var(--filmflix-black);
+}
+
+/* Landing Section */
+
+.landing {
+    height: 40vh;
+    color: var(--filmflix-white);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)), url(../images/landing.JPEG) center/cover no-repeat;
+}
+
+.landing-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner {
+    display: block;
+    text-align: center;
+}
+
+.banner h4 {
+    padding: 0px 25px;
+}
+
+.landing h1 {
+    font-size: 3rem;
+}
+
+.landing h1::after {
+    content: '';
+    height: 2px;
+    background: var(--filmflix-dark-red);
+    margin: 0 auto;
+    width: 200px;
+    display: block;
+}
+
+.browse {
+    background: var(--filmflix-white);
+    border-radius: var(--radius);
+    margin: 0 25px;
+    text-align: center;
+    margin-top: -30px;
+    box-shadow: var(--light-shadow);
+    max-width: 800px;
+    padding: 25px;
+}
+
+.browse-info {
+    padding-bottom: 1rem;
+}
+
+.browse-info h1 {
+    margin-bottom: 1rem;
+    word-spacing: 0;
+}
+
+/* Animations */
+@keyframes entrance {
+    0% {
+        -webkit-transform: rotate(-540deg) scale(0);
+        transform: rotate(-540deg) scale(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(-540deg) scale(0);
+        transform: rotate(0) scale(1);
+    }
+}
+
+@-webkit-keyframes entrance {
+    0% {
+        -webkit-transform: rotate(-540deg) scale(0);
+        transform: rotate(-540deg) scale(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(-540deg) scale(0);
+        transform: rotate(0) scale(1);
+    }
+}
+
+@keyframes text-highlight-color {
+    0% {
+        color: var(--filmflix-white);
+    }
+
+    50% {
+        color: var(--filmflix-red);
+    }
+
+    100% {
+        color: var(--filmflix-white);
+    }
+}
+
+@-webkit-keyframes text-highlight-color {
+    0% {
+        color: var(--filmflix-white);
+    }
+
+    50% {
+        color: var(--filmflix-red);
+    }
+
+    100% {
+        color: var(--filmflix-white);
+    }
+}
+
+/* Media Queries [Largest --> Smallest] */
+@media screen and (min-width: 800px) {
+    .navigation {
+        height: auto !important;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-links-container {
+        display: flex;
+    }
+
+    .nav-list-item {
+        margin-left: 20px;
+    }
+
+    .nav-list-item:nth-child(1) {
+        margin-left: 0;
+    }
+
+    .landing {
+        height: 60vh;
+    }
+
+    .banner h1 {
+        font-size: 7rem;
+    }
+
+    .browse {
+        margin: 0 auto;
+        margin-top: -50px;
+    }
+}
