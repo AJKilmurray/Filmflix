@@ -241,7 +241,7 @@ p {
 /* Navbar */
 
 .navbar {
-    background: var(--filmflix-white);
+    background: var(--filmflix-black);
 }
 
 .nav-container {
@@ -311,6 +311,7 @@ p {
 
 .landing {
     height: 40vh;
+    z-index: -5;
     color: var(--filmflix-white);
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)), url(../images/landing.JPEG) center/cover no-repeat;
 }
@@ -344,7 +345,8 @@ p {
     display: block;
 }
 
-.browse {
+.browse,
+.compare {
     background: var(--filmflix-white);
     border-radius: var(--radius);
     margin: 0 25px;
@@ -355,11 +357,11 @@ p {
     padding: 25px;
 }
 
-.browse-info {
+.info-tab {
     padding-bottom: 1rem;
 }
 
-.browse-info h1 {
+.info-tab h1 {
     margin-bottom: 1rem;
     word-spacing: 0;
 }
