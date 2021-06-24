@@ -8,6 +8,6 @@ const hidePreloader = (preloaderElement) => {
 	preloaderElement.classList.add("hide-preloader");
 };
 
-const redirectToPage = (toPage) => {
-	window.location.href = toPage;
+const redirectToPage = (pageUrl) => {
+	window.location.href = pageUrl;
 };
