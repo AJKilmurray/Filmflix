@@ -1,5 +1,7 @@
-const searchRedirect = document.querySelector(".search-redirect");
+const redirectBtns = document.querySelectorAll(".redirect");
 
-searchRedirect.addEventListener("click", () => {
-	redirectToPage("search.html");
+redirectBtns.forEach((btn) => {
+	btn.addEventListener("click", (clickedBtn) => {
+		redirectToPage(`${clickedBtn.target.dataset.redirect}.html`);
+	});
 });
