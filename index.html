@@ -2,78 +2,139 @@
 <html lang="en">
 
 <head>
-    <title>Home | Filmflix</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS Index -->
-    <link rel="stylesheet" href="assets/style/index.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+	<title>Home | Filmflix</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="assets/favicon/site.webmanifest">
+	<link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#db0000">
+	<link rel="shortcut icon" href="assets/favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#000000">
+	<!-- CSS Index -->
+	<link rel="stylesheet" href="assets/style/index.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+		integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="preloader">
-        <div class="preloader-container">
-            <img src="assets/images/preloader.gif" alt="Preloader GIF">
-        </div>
-    </div>
-    <header class="navbar">
-        <div class="container nav-container">
-            <div class="nav-heading">
-                <a href="#" class="logo-link">
-                    <img src="assets/images/logo.png" alt="Filmflix Logo" class="logo">
-                </a>
-                <button class="nav-toggle">
-                    <i class="fas fa-bars fa-2x hamburger-menu"></i>
-                </button>
-            </div>
-            <nav class="navigation">
-                <ul class="nav-links-container">
-                    <li class="nav-list-item"><a href="search.html" class="nav-link">Search</a></li>
-                    <li class="nav-list-item"><a href="compare.html" class="nav-link">Compare</a></li>
-                    <li class="nav-list-item"><a href="#" class="nav-link">About</a></li>
-                    <li class="nav-list-item"><a href="#" class="nav-link">Support</a></li>
-                    <li class="nav-list-item"><a href="#" class="nav-link active">Settings</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section class="landing">
-        <div class="container landing-container">
-            <article class="banner">
-                <h1><span class="text-color-animation">Film</span><span class="delayed-text-color-animation">flix</span>
-                </h1>
-                <h4>Take a look at the statistics behind your favourite films and TV shows.</h4>
-            </article>
-        </div>
-    </section>
-    <section class="browse" id="browse">
-        <div class="container">
-            <article class="browse-info info-tab">
-                <h1>What is <span class="red-highlight">Filmflix</span>?</h1>
-                <p>We have brought to you the ultimate solution to finding the data for films and TV shows on demand.
-                    Anywhere, anytime. All you need is a valid wifi connection and a device that can access this
-                    website! Below this piece of text, you'll find a button to take you to our search page. Here you
-                    will be able to search for any movie of your choice. Take a look!
-                </p>
-                <button class="btn search-redirect">Find out more</button>
-            </article>
-        </div>
-    </section>
-    <section class="compare" id="compare">
-        <div class="container">
-            <div class="compare-info info-tab"></div>
-        </div>
-    </section>
-    <!-- Javascript Files -->
-    <script src="assets/js/main/index.js"></script>
-    <script src="assets/js/main/helpers.js"></script>
-    <script src="assets/js/main/utils.js"></script>
-    <script src="assets/js/navbar/navbar.js"></script>
-    <script src="assets/js/preloader/preloader.js"></script>
-    <script src="assets/js/redirects/homeRedirects.js"></script>
+	<div class="preloader">
+		<div class="preloader-container">
+			<img src="assets/images/preloader.gif" alt="Preloader GIF">
+		</div>
+	</div>
+	<header class="navbar">
+		<div class="container nav-container">
+			<div class="nav-heading">
+				<a href="#" class="logo-link">
+					<img src="assets/images/logo.png" alt="Filmflix Logo" class="logo">
+				</a>
+				<button class="nav-toggle">
+					<i class="fas fa-bars fa-2x hamburger-menu"></i>
+				</button>
+			</div>
+			<nav class="navigation">
+				<ul class="nav-links-container">
+					<li class="nav-list-item"><a href="search.html" class="nav-link">Search</a></li>
+					<li class="nav-list-item"><a href="compare.html" class="nav-link">Compare</a></li>
+					<li class="nav-list-item"><a href="index.html" class="nav-link">About</a></li>
+					<li class="nav-list-item"><a href="#" class="nav-link">Support</a></li>
+					<li class="nav-list-item"><a href="#" class="nav-link active">Settings</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<section class="landing">
+			<div class="container landing-container">
+				<article class="banner">
+					<h1><span class="text-color-animation">Film</span><span class="delayed-text-color-animation">flix</span>
+					</h1>
+					<h4>Take a look at the statistics behind your favourite films and TV shows.</h4>
+				</article>
+			</div>
+		</section>
+		<section class="about" id="about">
+			<div class="container">
+				<article class="about-info info-tab">
+					<h2>What is <span class="red-highlight">Filmflix</span>?</h2>
+					<p>We have brought to you the ultimate solution to finding the data for films and TV shows on demand.
+						Anywhere, anytime. All you need is a valid wifi connection and a device that can access this
+						website! Below this piece of text, you'll find a button to take you to our search page. Here you
+						will be able to search for any movie of your choice. Take a look!
+					</p>
+					<button class="btn redirect" data-redirect="about">About Filmflix</button>
+				</article>
+			</div>
+		</section>
+		<section class="search" id="search">
+			<div class="container">
+				<article class="search-info info-tab">
+					<h2>Start Searching</h2>
+					<p>Do you want to easily find the data behind the movies and TV shows you're skeptical about watching, or
+						unsure whether their worth your time? You can take a look at all the information regarding the movies and TV
+						shows you're thinking of watching to understand beforehand what they're about. Your time is extremely
+						important, and should be treated with upmost priority and respect.</p>
+					</<article>
+					<button class="btn redirect" data-redirect="search">Start Searching</button>
+			</div>
+		</section>
+		<section class="compare" id="compare">
+			<div class="container">
+				<article class="compare-info info-tab">
+					<h2>Compare Films & TV Shows</h2>
+					<p>With our built in comparison system, we will compare two movies/shows of your choice and provide you with
+						the best of the two options to watch. Even if you're not looking to watch a movie, this tool can still be
+						used for getting statistics, data, and much more information about the movies and TV shows you choose to
+						compare!</p>
+					</<article>
+					<button class="btn redirect" data-redirect="compare">Take a Look</button>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="footer-container">
+			<ul class="footer-list">
+				<h3>Links</h3>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+			</ul>
+			<ul class="footer-list">
+				<h3>Contribute</h3>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+			</ul>
+			<ul class="footer-list">
+				<h3>Contact</h3>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+				<li class="footer-list-item"><a href="#" class="footer-link">Item</a></li>
+			</ul>
+			<img src="assets/images/logo.png" alt="Filmflix Logo" class="logo">
+		</div>
+		<h4 class="footer-rights">Filmflix 2021 <span class="red-highlight">&copy;</span> All Rights Reserved.</h4>
+	</footer>
+	<!-- Javascript Files -->
+	<script src="assets/js/main/index.js"></script>
+	<script src="assets/js/main/helpers.js"></script>
+	<script src="assets/js/main/utils.js"></script>
+	<script src="assets/js/navbar/navbar.js"></script>
+	<script src="assets/js/preloader/preloader.js"></script>
+	<script src="assets/js/redirects/homeRedirects.js"></script>
 </body>
 
 </html>
