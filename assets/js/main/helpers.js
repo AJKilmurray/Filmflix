@@ -11,3 +11,21 @@ const hidePreloader = (preloaderElement) => {
 const redirectToPage = (pageUrl) => {
 	window.location.href = pageUrl;
 };
+
+const renderComponent = (
+	parentContainer,
+	renderHTML,
+	set = false,
+	append = false
+) => {
+	if (set) {
+		parentContainer.innerHTML = renderHTML;
+	} else if (append) {
+		parentContainer.appendChild(renderHTML);
+	}
+	console.log("test");
+};
+
+const toggleSidebar = (sidebar, toggleClass) => {
+	sidebar.classList.toggle(toggleClass);
+};
