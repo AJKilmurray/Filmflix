@@ -23,7 +23,6 @@ const renderComponent = (
 	} else if (append) {
 		parentContainer.appendChild(renderHTML);
 	}
-	console.log("test");
 };
 
 const toggleSidebar = (sidebar, toggleClass) => {

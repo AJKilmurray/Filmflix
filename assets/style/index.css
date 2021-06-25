@@ -608,16 +608,22 @@ p {
 
 @media screen and (max-width: 800px) {
     .footer-container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     .footer-container .logo {
         align-self: center;
+        grid-column: span 3;
     }
 }
 
 @media screen and (max-width: 500px) {
     .footer-container {
         grid-template-columns: 1fr;
+    }
+
+    .footer-container .logo {
+        align-self: center;
+        grid-column: span 1;
     }
 }
