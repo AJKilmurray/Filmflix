@@ -210,7 +210,6 @@ p {
 }
 
 .btn:hover {
-    color: var(--filmflix-white);
     background: var(--primary);
 }
 
@@ -295,7 +294,6 @@ p {
 
 .nav-link:hover {
     background: var(--primary);
-    color: var(--filmflix-white);
 }
 
 .nav-link:active {
@@ -591,6 +589,7 @@ p {
     }
 
     .footer-list h3 {
+        color: var(--filmflix-red);
         display: block;
         border: 0;
         margin: 0;

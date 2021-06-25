@@ -34,33 +34,16 @@
 		</div>
 	</aside>
 	<header class="navbar">
-		<div class="container nav-container">
-			<div class="nav-heading">
-				<a href="#" class="logo-link">
-					<img src="assets/images/logo.png" alt="Filmflix Logo" class="logo">
-				</a>
-				<button class="nav-toggle">
-					<i class="fas fa-bars fa-2x hamburger-menu"></i>
-				</button>
-			</div>
-			<nav class="navigation">
-				<ul class="nav-links-container">
-					<li class="nav-list-item"><a href="search.html" class="nav-link">Search</a></li>
-					<li class="nav-list-item"><a href="compare.html" class="nav-link">Compare</a></li>
-					<li class="nav-list-item"><a href="index.html" class="nav-link">About</a></li>
-					<li class="nav-list-item"><a href="#" class="nav-link">Support</a></li>
-					<li class="nav-list-item"><a href="#" class="nav-link active" id="settings">Settings</a></li>
-				</ul>
-			</nav>
-		</div>
+		<!-- Dynamic Navbar -->
 	</header>
 	<main>
 		<section class="landing">
 			<div class="container landing-container">
 				<article class="banner">
-					<h1><span class="text-color-animation">Film</span><span class="delayed-text-color-animation">flix</span>
+					<h1><span class="text-color-animation">Film</span><span
+							class="delayed-text-color-animation">flix</span>
 					</h1>
-					<h4>Take a look at the statistics behind your favourite films and TV shows.</h4>
+					<p>Take a look at the statistics behind your favourite films and TV shows.</p>
 				</article>
 			</div>
 		</section>
@@ -68,7 +51,8 @@
 			<div class="container">
 				<article class="about-info info-tab">
 					<h2>What is <span class="red-highlight">Filmflix</span>?</h2>
-					<p>We have brought to you the ultimate solution to finding the data for films and TV shows on demand.
+					<p>We have brought to you the ultimate solution to finding the data for films and TV shows on
+						demand.
 						Anywhere, anytime. All you need is a valid wifi connection and a device that can access this
 						website! Below this piece of text, you'll find a button to take you to our search page. Here you
 						will be able to search for any movie of your choice. Take a look!
@@ -81,9 +65,12 @@
 			<div class="container">
 				<article class="search-info info-tab">
 					<h2>Start Searching</h2>
-					<p>Do you want to easily find the data behind the movies and TV shows you're skeptical about watching, or
-						unsure whether their worth your time? You can take a look at all the information regarding the movies and TV
-						shows you're thinking of watching to understand beforehand what they're about. Your time is extremely
+					<p>Do you want to easily find the data behind the movies and TV shows you're skeptical about
+						watching, or
+						unsure whether their worth your time? You can take a look at all the information regarding the
+						movies and TV
+						shows you're thinking of watching to understand beforehand what they're about. Your time is
+						extremely
 						important, and should be treated with upmost priority and respect.</p>
 					</<article>
 					<button class="btn redirect" data-redirect="search">Browse</button>
@@ -92,10 +79,14 @@
 		<section class="compare" id="compare">
 			<div class="container">
 				<article class="compare-info info-tab">
-					<h2>Compare <span class="red-highlight">Films</span> & <span class="red-highlight">TV Shows</span></h2>
-					<p>With our built in comparison system, we will compare two movies/shows of your choice and provide you with
-						the best of the two options to watch. Even if you're not looking to watch a movie, this tool can still be
-						used for getting statistics, data, and much more information about the movies and TV shows you choose to
+					<h2>Compare <span class="red-highlight">Films</span> & <span class="red-highlight">TV Shows</span>
+					</h2>
+					<p>With our built in comparison system, we will compare two movies/shows of your choice and provide
+						you with
+						the best of the two options to watch. Even if you're not looking to watch a movie, this tool can
+						still be
+						used for getting statistics, data, and much more information about the movies and TV shows you
+						choose to
 						compare!</p>
 					</<article>
 					<button class="btn redirect" data-redirect="compare">Take a Look</button>
@@ -105,11 +96,10 @@
 			<div class="container">
 				<article class="support-info info-tab">
 					<h2>Need Some <span class="red-highlight">Help</span>?</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolorem impedit fuga voluptas placeat cum
-						ea et id velit fugiat. Repudiandae, quia voluptatibus laudantium quos explicabo iure magni id vitae velit
-						placeat? Laudantium sed eum illum vero quo pariatur illo! Lorem, ipsum dolor sit amet consectetur
-						adipisicing elit. Libero, ipsum. Fugiat itaque iure labore ad. Optio et reiciendis incidunt quia! Quibusdam
-						minus modi quidem perspiciatis!</p>
+					<p>If you're in need of support, please feel free to reach out to our support team by tapping the
+						button
+						below. We will also answer any questions, inquiries, or problems that you are facing with the
+						website.</p>
 					</<article>
 					<button class="btn redirect" data-redirect="support">Get Help</button>
 			</div>
@@ -123,7 +113,9 @@
 	<script src="assets/js/main/index.js"></script>
 	<script src="assets/js/main/helpers.js"></script>
 	<script src="assets/js/main/utils.js"></script>
-	<script src="assets/js/components/navbar/navbar.js"></script>
+	<script src="assets/js/components/navbar/navbar.js" type="module"></script>
+	<script src="assets/js/components/navbar/responsiveNavbar.js"></script>
+	<script src="assets/js/components/navbar/navbarConfig.js" type="module"></script>
 	<script src="assets/js/components/preloader/preloader.js"></script>
 	<script src="assets/js/components/redirects/homeRedirects.js"></script>
 	<script src="assets/js/components/footer/footer.js" type="module"></script>
