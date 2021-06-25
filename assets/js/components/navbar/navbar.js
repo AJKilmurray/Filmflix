@@ -1,18 +1,107 @@
 import { navbar } from "./navbarConfig.js";
-const config = navbar.navbar;
-const container = document.querySelector(".navbar");
-const navbarHTML = `
-    ${config.container.start}
+const { container, heading, navigation, links } = navbar.navbar;
+const navbarContainer = document.querySelector(".navbar");
+let navbarHTML;
 
-    ${config.heading.start}
-    ${config.heading.content}
-    ${config.heading.end}
+if (window.location.href.includes("index")) {
+	navbarHTML = `
+        ${container.start}
 
-    ${config.navigation.start}
-    ${config.navigation.content}
-    ${config.navigation.end}
+        ${heading.start}
+        ${heading.content}
+        ${heading.end}
 
-    ${config.container.end}
-`;
+        ${navigation.start}
+        ${links.container.start}
+        ${links.search}
+        ${links.compare}
+        ${links.about}
+        ${links.support}
+        ${links.settings}
+        ${links.container.end}
+        ${navigation.end}
 
-renderComponent(container, navbarHTML, true, false);
+        ${container.end}
+    `;
+} else if (window.location.href.includes("search")) {
+	navbarHTML = `
+        ${container.start}
+
+        ${heading.start}
+        ${heading.content}
+        ${heading.end}
+
+        ${navigation.start}
+        ${links.container.start}
+        ${links.home}
+        ${links.compare}
+        ${links.about}
+        ${links.support}
+        ${links.settings}
+        ${links.container.end}
+        ${navigation.end}
+
+        ${container.end}
+    `;
+} else if (window.location.href.includes("compare")) {
+	navbarHTML = `
+        ${container.start}
+
+        ${heading.start}
+        ${heading.content}
+        ${heading.end}
+
+        ${navigation.start}
+        ${links.container.start}
+        ${links.home}
+        ${links.search}
+        ${links.about}
+        ${links.support}
+        ${links.settings}
+        ${links.container.end}
+        ${navigation.end}
+
+        ${container.end}
+    `;
+} else if (window.location.href.includes("about")) {
+	navbarHTML = `
+        ${container.start}
+
+        ${heading.start}
+        ${heading.content}
+        ${heading.end}
+
+        ${navigation.start}
+        ${links.container.start}
+        ${links.home}
+        ${links.search}
+        ${links.compare}
+        ${links.support}
+        ${links.settings}
+        ${links.container.end}
+        ${navigation.end}
+
+        ${container.end}
+    `;
+} else if (window.location.href.includes("support")) {
+	navbarHTML = `
+        ${container.start}
+
+        ${heading.start}
+        ${heading.content}
+        ${heading.end}
+
+        ${navigation.start}
+        ${links.container.start}
+        ${links.home}
+        ${links.search}
+        ${links.compare}
+        ${links.about}
+        ${links.settings}
+        ${links.container.end}
+        ${navigation.end}
+
+        ${container.end}
+    `;
+}
+renderComponent(navbarContainer, navbarHTML, true, false);

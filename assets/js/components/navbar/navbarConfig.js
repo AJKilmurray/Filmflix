@@ -17,33 +17,18 @@ export const navbar = {
 		navigation: {
 			start: `<nav class="navigation">`,
 			end: `</nav>`,
-			content: `<ul class="nav-links-container">
-            <li class="nav-list-item"><a href="search.html" class="nav-link">Search</a></li>
-            <li class="nav-list-item"><a href="compare.html" class="nav-link">Compare</a></li>
-            <li class="nav-list-item"><a href="index.html" class="nav-link">About</a></li>
-            <li class="nav-list-item"><a href="#" class="nav-link">Support</a></li>
-            <li class="nav-list-item"><a href="#" class="nav-link active" id="settings">Settings</a></li>
-        </ul>`,
+		},
+		links: {
+			container: {
+				start: `<ul class="nav-links-container">`,
+				end: `</ul>`,
+			},
+			home: `<li class="nav-list-item"><a href="index.html" class="nav-link">Home</a></li>`,
+			search: `<li class="nav-list-item"><a href="search.html" class="nav-link">Search</a></li>`,
+			compare: `<li class="nav-list-item"><a href="compare.html" class="nav-link">Compare</a></li>`,
+			about: `<li class="nav-list-item"><a href="about.html" class="nav-link">About</a></li>`,
+			support: `<li class="nav-list-item"><a href="support.html" class="nav-link">Support</a></li>`,
+			settings: `<li class="nav-list-item"><a class="nav-link active" id="settings">Settings</a></li>`,
 		},
 	},
 };
-
-/* <div class="container nav-container">
-			<div class="nav-heading">
-				<a href="#" class="logo-link">
-					<img src="assets/images/logo.png" alt="Filmflix Logo" class="logo">
-				</a>
-				<button class="nav-toggle">
-					<i class="fas fa-bars fa-2x hamburger-menu"></i>
-				</button>
-			</div>
-			<nav class="navigation">
-				<ul class="nav-links-container">
-					<li class="nav-list-item"><a href="search.html" class="nav-link">Search</a></li>
-					<li class="nav-list-item"><a href="compare.html" class="nav-link">Compare</a></li>
-					<li class="nav-list-item"><a href="index.html" class="nav-link">About</a></li>
-					<li class="nav-list-item"><a href="#" class="nav-link">Support</a></li>
-					<li class="nav-list-item"><a href="#" class="nav-link active" id="settings">Settings</a></li>
-				</ul>
-			</nav>
-		</div> */

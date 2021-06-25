@@ -96,6 +96,10 @@
     box-sizing: border-box;
 }
 
+::selection {
+    background: rgba(0, 0, 0, 0.8);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -290,6 +294,7 @@ p {
     padding: 5px 10px;
     border-radius: var(--radius);
     transition: var(--transition);
+    cursor: pointer;
 }
 
 .nav-link:hover {
@@ -330,12 +335,12 @@ p {
 
 .landing {
     height: 40vh;
-    z-index: -5;
     color: var(--filmflix-white);
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)), url(../images/landing.JPEG) center/cover no-repeat;
     border-bottom-left-radius: 50em 5%;
     border-bottom-right-radius: 50em 5%;
     box-shadow: var(--dark-shadow);
+    z-index: 1;
 }
 
 .landing-container {
@@ -372,6 +377,15 @@ p {
 }
 
 .about,
+.about .container,
+.about-info,
+.about-info h2,
+.about-info p,
+.about-info button {
+    z-index: 2;
+}
+
+.about,
 .search,
 .compare,
 .support {
@@ -403,6 +417,54 @@ p {
     color: var(--filmflix-white);
     background: var(--primary-light-4);
     transform: scale(1.05);
+}
+
+/* Search Page */
+.search-input {
+    height: 200px;
+    display: grid;
+    place-items: center;
+}
+
+.form {
+    display: flex;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.searchbar {
+    width: 600px;
+    border: 1px solid var(--gray-3);
+    border-right: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+}
+
+.search-btn {
+    background: var(--primary);
+    color: var(--filmflix-white);
+    border: 0;
+    padding: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search-btn:hover {
+    background: var(--primary-light-4);
+    color: var(--filmflix-black);
+}
+
+.searchbar,
+.search-btn {
+    font-size: 1.5rem;
+    font-family: var(--font-primary);
+}
+
+input:focus {
+    outline: none;
 }
 
 /* Footer */
@@ -597,6 +659,10 @@ p {
 
     .footer-link {
         margin-left: -10px;
+    }
+
+    .footer-link:hover {
+        margin-left: 0;
     }
 
     .footer-container .logo {
