@@ -103,5 +103,25 @@ if (window.location.href.includes("index")) {
 
         ${container.end}
     `;
+} else {
+	navbarHTML = `
+        ${container.start}
+
+        ${heading.start}
+        ${heading.content}
+        ${heading.end}
+
+        ${navigation.start}
+        ${links.container.start}
+        ${links.search}
+        ${links.compare}
+        ${links.about}
+        ${links.support}
+        ${links.settings}
+        ${links.container.end}
+        ${navigation.end}
+
+        ${container.end}
+    `;
 }
 renderComponent(navbarContainer, navbarHTML, true, false);

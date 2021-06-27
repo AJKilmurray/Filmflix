@@ -524,8 +524,13 @@ input:focus {
 .dropdown-item {
     display: flex;
     align-items: center;
-    margin-bottom: 2px;
+    padding: 2px 0;
     cursor: pointer;
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    background: var(--gray-3);
 }
 
 .dropdown-item img {
@@ -540,6 +545,18 @@ input:focus {
 
 .open-dropdown {
     display: block;
+}
+
+.comparison-win {
+    background: var(--primary);
+}
+
+.comparison-loss {
+    background: var(--gray-3);
+}
+
+.comparison-tie {
+    background: var(--primary-light-4);
 }
 
 /* Footer */

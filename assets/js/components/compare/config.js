@@ -17,7 +17,7 @@ const autoCompleteConfig = {
 		)
 			.then((res) => {
 				if (!res.ok) {
-					throw new Error`Status Code ${res.status}`();
+					throw new Error(`Status Code ${res.status}`);
 				}
 
 				return res.json();
@@ -28,7 +28,6 @@ const autoCompleteConfig = {
 				console.error(err);
 				console.log("=================================================");
 			});
-		console.log(response);
 		if (response.Error) {
 			return [];
 		}
@@ -74,12 +73,12 @@ const onMovieSelect = async (movie, displayContainer, side) => {
 			console.error(err);
 			console.log("=================================================");
 		});
-	displayContainer.innerHTML = movieTemplate(movieData.data);
+	displayContainer.innerHTML = movieTemplate(movieData);
 
 	if (side === "left") {
-		leftMovie = movieData.data;
+		leftMovie = movieData;
 	} else if (side === "right") {
-		rightMovie === movieData.data;
+		rightMovie === movieData;
 	}
 
 	if (leftMovie && rightMovie) {
@@ -88,7 +87,45 @@ const onMovieSelect = async (movie, displayContainer, side) => {
 };
 
 const runComparison = () => {
-	const leftSideStats = document.querySelectorAll(".");
+	const leftSideStats = document.querySelectorAll(
+		".left-movie .comparison-item"
+	);
+	const rightSideStats = document.querySelectorAll(
+		".right-move .comparison-item"
+	);
+
+	leftSideStats.forEach((leftStat, index) => {
+		const rightStat = rightSideStats[index];
+		let leftSideValue = parseFloat(leftStat.dataset.value);
+		let rightSideValue = parseFloat(rightStat.dataset.value);
+		if (leftSideValue === rightSideValue) {
+			applyTiedComparisonColor(leftStat, rightStat);
+		} else if (
+			leftSideValue < rightSideStats ||
+			(isNaN(leftSideValue) && !isNaN(rightSideValue))
+		) {
+			applyComparisonColors(leftStat, rightStat);
+		} else if (
+			leftSideValue > rightSideValue ||
+			(!isNaN(leftSideValue) && isNaN(rightSideValue))
+		) {
+			applyComparisonColors(rightStat, leftStat);
+		}
+	});
+};
+
+const applyComparisonColors = (lessThan, greaterThan) => {
+	lessThan.classList.remove("comparison-win", "comparison-tie");
+	lessThan.classList.add("comparison-loss");
+	greaterThan.classList.remove("comparison-loss", "comparison-tie");
+	greaterThan.classList.add("comparison-win");
+};
+
+const applyTiedScoreColor = (leftSide, rightSide) => {
+	leftSide.classList.remove("comparison-win", "comparison-loss");
+	leftSide.classList.add("comparison-tie");
+	rightSide.classList.remove("comparison-win", "comparison-loss");
+	rightSide.classList.add("comparison-tie");
 };
 
 const awardsValue = (awards) => {
