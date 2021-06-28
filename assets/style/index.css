@@ -480,7 +480,7 @@ input:focus {
 /* Compare */
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
@@ -490,37 +490,49 @@ input:focus {
 }
 
 .input-field {
-    padding: 10px;
+    padding: 5px;
     border: 1px solid var(--gray-3);
     font-family: var(--font-primary);
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--filmflix-black);
     border-radius: var(--radius);
+    grid-column: span 2;
+    width: 180px;
 }
 
 .left-movie,
 .right-movie {
-    padding: 15px;
-    box-shadow: var(--light-shadow);
+    padding: 5px;
+    /* box-shadow: var(--light-shadow); */
     border-radius: var(--radius);
-    margin: 25px;
+    margin: 15px;
 }
 
 .assist {
     display: flex;
     align-items: center;
-    box-shadow: var(--light-shadow);
+    justify-content: center;
+    margin: 0 25px;
+    /* box-shadow: var(--light-shadow);
     text-align: center;
     width: fit-content;
-    margin: 25px auto;
+    margin: 25px;
     padding: 25px;
     border-radius: var(--radius);
-    grid-column: span 2;
+    grid-column: span 2; */
+}
+
+.assist p {
+    text-align: center;
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--light-shadow);
+    font-size: 1rem;
 }
 
 .left-search,
 .right-search {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .dropdown {
@@ -803,6 +815,10 @@ input:focus {
     .compare,
     .support {
         margin-top: 5rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
     }
 
     .footer-container {

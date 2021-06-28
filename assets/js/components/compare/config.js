@@ -10,7 +10,7 @@ const autoCompleteConfig = {
 	},
 	async fetchData(searchTerm) {
 		if (searchTerm.includes(" ")) {
-			searchTerm.replace(/\s/g, "+").replace(/^+$+/g, "");
+			searchTerm.replace(/\s/g, "+");
 		}
 		const response = await fetch(
 			`https://www.omdbapi.com/?apikey=39418887&s=${searchTerm}`
