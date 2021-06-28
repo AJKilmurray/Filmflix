@@ -6,8 +6,7 @@
 ================
 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 /* 
 ================
 
@@ -67,6 +66,7 @@
     /* Fonts */
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Poppins', sans-serif;
+    --font-third: 'Inter', sans-serif;
 
     /* Transition */
     --transition: all 0.3s linear;
@@ -481,6 +481,7 @@ input:focus {
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
 .compare-input {
@@ -495,6 +496,14 @@ input:focus {
     font-size: 1.5rem;
     color: var(--filmflix-black);
     border-radius: var(--radius);
+}
+
+.left-movie,
+.right-movie {
+    padding: 15px;
+    box-shadow: var(--light-shadow);
+    border-radius: var(--radius);
+    margin: 25px;
 }
 
 .assist {
@@ -516,9 +525,12 @@ input:focus {
 
 .dropdown {
     display: none;
+    overflow: hidden;
     margin: 0 auto;
     box-shadow: var(--light-shadow);
     padding: 5px;
+    position: sticky;
+    z-index: 5;
 }
 
 .dropdown-item {
@@ -530,7 +542,7 @@ input:focus {
 }
 
 .dropdown-item:hover {
-    background: var(--gray-3);
+    background: rgb(233, 233, 233);
 }
 
 .dropdown-item img {
@@ -547,16 +559,78 @@ input:focus {
     display: block;
 }
 
+.content p {
+    font-family: var(--font-third) !important;
+}
+
+.content h1 {
+    font-size: 1.75rem;
+    width: fit-content;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--primary);
+}
+
+.comparison-item {
+    padding: 15px;
+    margin-bottom: 1rem;
+    border-radius: var(--radius);
+}
+
+.comparison-item p {
+    font-family: var(--font-third);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.comparison-item:nth-child(2) {
+    margin-top: 1rem;
+}
+
+.comparison-default p {
+    color: var(--filmflix-black);
+}
+
+.comparison-default p:nth-child(1) {
+    margin-bottom: 10px;
+}
+
 .comparison-win {
     background: var(--primary);
+}
+
+.comparison-win p {
+    color: var(--filmflix-white);
 }
 
 .comparison-loss {
     background: var(--gray-3);
 }
 
+.comparison-loss p {
+    color: var(--filmflix-black);
+}
+
 .comparison-tie {
-    background: var(--primary-light-4);
+    background: var(--filmflix-black);
+}
+
+.comparison-tie p {
+    color: var(--filmflix-white);
+}
+
+.movie-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.movie-img img {
+    width: 175px;
+    height: auto;
+    display: block;
+}
+
+.movie-details {
+    padding-left: 20px;
 }
 
 /* Footer */

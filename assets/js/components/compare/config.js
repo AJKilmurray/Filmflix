@@ -78,7 +78,7 @@ const onMovieSelect = async (movie, displayContainer, side) => {
 	if (side === "left") {
 		leftMovie = movieData;
 	} else if (side === "right") {
-		rightMovie === movieData;
+		rightMovie = movieData;
 	}
 
 	if (leftMovie && rightMovie) {
@@ -91,8 +91,10 @@ const runComparison = () => {
 		".left-movie .comparison-item"
 	);
 	const rightSideStats = document.querySelectorAll(
-		".right-move .comparison-item"
+		".right-movie .comparison-item"
 	);
+
+	let scoreTally = [0, 0]; // [0] is left, [1] is right
 
 	leftSideStats.forEach((leftStat, index) => {
 		const rightStat = rightSideStats[index];
@@ -101,30 +103,48 @@ const runComparison = () => {
 		if (leftSideValue === rightSideValue) {
 			applyTiedComparisonColor(leftStat, rightStat);
 		} else if (
-			leftSideValue < rightSideStats ||
+			leftSideValue < rightSideValue ||
 			(isNaN(leftSideValue) && !isNaN(rightSideValue))
 		) {
 			applyComparisonColors(leftStat, rightStat);
+			scoreTally[1]++;
 		} else if (
 			leftSideValue > rightSideValue ||
 			(!isNaN(leftSideValue) && isNaN(rightSideValue))
 		) {
 			applyComparisonColors(rightStat, leftStat);
+			scoreTally[0]++;
 		}
 	});
 };
 
 const applyComparisonColors = (lessThan, greaterThan) => {
-	lessThan.classList.remove("comparison-win", "comparison-tie");
+	lessThan.classList.remove(
+		"comparison-win",
+		"comparison-tie",
+		"comparison-default"
+	);
 	lessThan.classList.add("comparison-loss");
-	greaterThan.classList.remove("comparison-loss", "comparison-tie");
+	greaterThan.classList.remove(
+		"comparison-loss",
+		"comparison-tie",
+		"comparison-default"
+	);
 	greaterThan.classList.add("comparison-win");
 };
 
-const applyTiedScoreColor = (leftSide, rightSide) => {
-	leftSide.classList.remove("comparison-win", "comparison-loss");
+const applyTiedComparisonColor = (leftSide, rightSide) => {
+	leftSide.classList.remove(
+		"comparison-win",
+		"comparison-loss",
+		"comparison-default"
+	);
 	leftSide.classList.add("comparison-tie");
-	rightSide.classList.remove("comparison-win", "comparison-loss");
+	rightSide.classList.remove(
+		"comparison-win",
+		"comparison-loss",
+		"comparison-default"
+	);
 	rightSide.classList.add("comparison-tie");
 };
 
@@ -134,7 +154,7 @@ const awardsValue = (awards) => {
 		if (isNaN(value)) {
 			return total;
 		} else if (!isNaN(value)) {
-			return total + curr;
+			return total + value;
 		}
 	}, 0);
 	return totalAwards;
@@ -175,23 +195,23 @@ const movieTemplate = (movieDetails) => {
 			</div>
 		</div>
 	</article>
-	<article data-value=${awards} class="comparison-item">
+	<article data-value=${awards} class="comparison-item comparison-default">
 		<p class="title">${Awards}</p>
 		<p>Awards (${awards} Total)</p>
 	</article>
-	<article data-value=${dollars} class="comparison-item">
+	<article data-value=${dollars} class="comparison-item comparison-default">
 		<p class="title">${BoxOffice}</p>
 		<p>Box Office ($USD)</p>
 	</article>
-	<article data-value=${metascore} class="comparison-item">
+	<article data-value=${metascore} class="comparison-item comparison-default">
 		<p class="title">${Metascore}</p>
 		<p>Metascore (${Metascore}/100)</p>
 	</article>
-	<article data-value=${rating} class="comparison-item">
+	<article data-value=${rating} class="comparison-item comparison-default">
 		<p class="title">${imdbRating}</p>
 		<p>IMDb Rating (${imdbRating}/10)</p>
 	</article>
-	<article data-value=${votes} class="comparison-item">
+	<article data-value=${votes} class="comparison-item comparison-default">
 		<p class="title">${imdbVotes}</p>
 		<p>IMDb Votes</p>
 	</article>
