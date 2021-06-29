@@ -7,7 +7,7 @@ const createAutoComplete = ({
 }) => {
 	root.innerHTML = `
     <div class="compare-input">
-        <input type="text" class="compare-searchbar input-field">
+		<i class="fas fa-search fa-lg"></i><input type="text" class="compare-searchbar input-field" placeholder="Find movie">
     </div>
     <div class="dropdown">
         <div class="dropdown-menu">

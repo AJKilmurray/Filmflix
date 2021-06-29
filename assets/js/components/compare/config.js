@@ -173,6 +173,8 @@ const movieTemplate = (movieDetails) => {
 		imdbVotes,
 	} = movieDetails;
 
+	console.log(movieDetails);
+
 	// Converting values
 	const dollars = parseInt(BoxOffice.replace(/\$/g, "").replace(/,/g, ""));
 	const metascore = parseInt(Metascore);

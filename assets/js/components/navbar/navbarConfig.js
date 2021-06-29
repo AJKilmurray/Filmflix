@@ -7,7 +7,7 @@ export const navbar = {
 		heading: {
 			start: `<div class="nav-heading">`,
 			end: `</div>`,
-			content: `<a href="#" class="logo-link">
+			content: `<a href="index.html" class="logo-link">
                         <img src="assets/images/logo.png" alt="Filmflix Logo" class="logo">
                     </a>
                     <button class="nav-toggle">
