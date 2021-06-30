@@ -100,7 +100,7 @@
 }
 
 ::selection {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 html {
@@ -501,7 +501,7 @@ input:focus {
     border-top-right-radius: var(--radius);
     border-bottom-right-radius: var(--radius);
     grid-column: span 2;
-    width: 180px;
+    width: 200px;
 }
 
 .left-movie,
@@ -805,6 +805,22 @@ input:focus {
 
 /* Media Queries [Largest --> Smallest] */
 @media screen and (min-width: 1150px) {
+    .content {
+        margin-top: 0;
+    }
+
+    .content p {
+        font-size: 1.1rem !important;
+    }
+
+    .content h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .comparison-item p {
+        font-size: 1.1rem;
+    }
+
     .footer-list {
         margin-left: 50px;
     }
@@ -875,13 +891,22 @@ input:focus {
         position: relative;
     }
 
+    .left-movie,
+    .right-movie {
+        min-height: 1000px;
+    }
+
     .movie-details {
         grid-column: span 1;
         padding-left: 20px;
     }
 
+    .content p {
+        font-size: 0.8rem;
+    }
+
     .movie-img img {
-        width: 150px;
+        width: 175px;
     }
 
     .movie-img-container {

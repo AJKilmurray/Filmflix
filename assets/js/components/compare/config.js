@@ -40,7 +40,6 @@ createAutoComplete({
 	root: document.querySelector(".left-search"),
 	...autoCompleteConfig,
 	onOptionSelect(movie) {
-		document.querySelector(".assist").classList.add("hide-element");
 		onMovieSelect(movie, document.querySelector(".left-movie"), "left");
 	},
 });
@@ -49,7 +48,6 @@ createAutoComplete({
 	root: document.querySelector(".right-search"),
 	...autoCompleteConfig,
 	onOptionSelect(movie) {
-		document.querySelector(".assist").classList.add("hide-element");
 		onMovieSelect(movie, document.querySelector(".right-movie"), "right");
 	},
 });
