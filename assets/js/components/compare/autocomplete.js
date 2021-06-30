@@ -4,10 +4,11 @@ const createAutoComplete = ({
 	onOptionSelect,
 	inputValue,
 	fetchData,
+	inputPlaceholder,
 }) => {
 	root.innerHTML = `
     <div class="compare-input">
-		<i class="fas fa-search fa-lg"></i><input type="text" class="compare-searchbar input-field" placeholder="Find movie">
+		<i class="fas fa-search fa-lg"></i><input type="text" class="compare-searchbar input-field" placeholder="${inputPlaceholder}">
     </div>
     <div class="dropdown">
         <div class="dropdown-menu">

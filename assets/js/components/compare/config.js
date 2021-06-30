@@ -42,6 +42,7 @@ createAutoComplete({
 	onOptionSelect(movie) {
 		onMovieSelect(movie, document.querySelector(".left-movie"), "left");
 	},
+	inputPlaceholder: "Find first movie",
 });
 
 createAutoComplete({
@@ -50,6 +51,7 @@ createAutoComplete({
 	onOptionSelect(movie) {
 		onMovieSelect(movie, document.querySelector(".right-movie"), "right");
 	},
+	inputPlaceholder: "Find second movie",
 });
 
 let leftMovie;

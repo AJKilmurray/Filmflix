@@ -100,7 +100,7 @@
 }
 
 ::selection {
-    background: rgba(0, 0, 0, 0.1);
+    background: #ff2d2db2;
 }
 
 html {
@@ -481,6 +481,17 @@ input:focus {
 }
 
 /* Compare */
+.compare-banner h1 {
+    padding-bottom: 5px;
+    width: fit-content;
+    margin: 0 auto 10px auto;
+}
+
+.compare-banner h1::after {
+    margin-top: 20px;
+    width: 400px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -494,14 +505,23 @@ input:focus {
 
 .input-field {
     padding: 5px;
-    border: 1px solid var(--gray-3);
-    font-family: var(--font-third);
+    border: none;
+    font-family: var(--font-fourth);
     font-size: 1rem;
     color: var(--filmflix-black);
-    border-top-right-radius: var(--radius);
-    border-bottom-right-radius: var(--radius);
+    border-bottom: 2px solid var(--filmflix-black);
     grid-column: span 2;
+    margin-left: 2px;
     width: 200px;
+    transition: var(--transition);
+}
+
+.input-field:focus {
+    animation: input 0.5s linear;
+}
+
+.compare-input ::placeholder {
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .left-movie,
@@ -543,12 +563,11 @@ input:focus {
     display: flex;
     align-self: center;
     padding: 15px;
-    background: var(--gray-1);
-    border: 1px solid var(--gray-3);
-    border-right: 0;
+    background: var(--primary);
+    border: none;
     border-top-left-radius: var(--radius);
     border-bottom-left-radius: var(--radius);
-    color: var(--filmflix-black);
+    color: var(--filmflix-white);
 }
 
 .dropdown {
@@ -803,6 +822,26 @@ input:focus {
     }
 }
 
+@keyframes input {
+    0% {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.0);
+    }
+
+    100% {
+        border-bottom: 2px solid rgba(0, 0, 0, 1);
+    }
+}
+
+@-webkit-keyframes input {
+    0% {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.0);
+    }
+
+    100% {
+        border-bottom: 2px solid rgba(0, 0, 0, 1);
+    }
+}
+
 /* Media Queries [Largest --> Smallest] */
 @media screen and (min-width: 1150px) {
     .content {
@@ -882,8 +921,12 @@ input:focus {
         grid-template-columns: 1fr 1fr;
     }
 
-    .right-movie .movie-info {
-        margin-top: 0;
+    .compare-input {
+        margin-top: 3rem;
+    }
+
+    .input-field {
+        width: 250px;
     }
 
     .left-search,
@@ -894,6 +937,10 @@ input:focus {
     .left-movie,
     .right-movie {
         min-height: 1000px;
+    }
+
+    .right-movie .movie-info {
+        margin-top: 0;
     }
 
     .movie-details {
