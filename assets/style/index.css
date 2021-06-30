@@ -505,19 +505,17 @@ input:focus {
 
 .input-field {
     padding: 5px;
-    border: none;
+    border: 2px solid var(--filmflix-black);
     font-family: var(--font-fourth);
     font-size: 1rem;
     color: var(--filmflix-black);
     border-bottom: 2px solid var(--filmflix-black);
+    border-bottom-right-radius: 40px;
+    border-top-right-radius: 40px;
+    border-left: none;
     grid-column: span 2;
-    margin-left: 2px;
     width: 200px;
     transition: var(--transition);
-}
-
-.input-field:focus {
-    animation: input 0.5s linear;
 }
 
 .compare-input ::placeholder {
@@ -563,11 +561,11 @@ input:focus {
     display: flex;
     align-self: center;
     padding: 15px;
-    background: var(--primary);
-    border: none;
-    border-top-left-radius: var(--radius);
-    border-bottom-left-radius: var(--radius);
-    color: var(--filmflix-white);
+    border: 2px solid var(--filmflix-black);
+    border-right: none;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    color: var(--filmflix-red);
 }
 
 .dropdown {
@@ -819,26 +817,6 @@ input:focus {
 
     100% {
         color: var(--filmflix-white);
-    }
-}
-
-@keyframes input {
-    0% {
-        border-bottom: 2px solid rgba(0, 0, 0, 0.0);
-    }
-
-    100% {
-        border-bottom: 2px solid rgba(0, 0, 0, 1);
-    }
-}
-
-@-webkit-keyframes input {
-    0% {
-        border-bottom: 2px solid rgba(0, 0, 0, 0.0);
-    }
-
-    100% {
-        border-bottom: 2px solid rgba(0, 0, 0, 1);
     }
 }
 
