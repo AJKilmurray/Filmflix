@@ -42,7 +42,8 @@ createAutoComplete({
 	onOptionSelect(movie) {
 		onMovieSelect(movie, document.querySelector(".left-movie"), "left");
 	},
-	inputPlaceholder: "Find first movie",
+	inputPlaceholder: "First movie",
+	inputID: "left-input-field",
 });
 
 createAutoComplete({
@@ -51,7 +52,8 @@ createAutoComplete({
 	onOptionSelect(movie) {
 		onMovieSelect(movie, document.querySelector(".right-movie"), "right");
 	},
-	inputPlaceholder: "Find second movie",
+	inputPlaceholder: "Second movie",
+	inputID: "right-input-field",
 });
 
 let leftMovie;
@@ -62,7 +64,7 @@ const onMovieSelect = async (movie, displayContainer, side) => {
 	)
 		.then((res) => {
 			if (!res.ok) {
-				throw new Error`Status Code ${res.status}`();
+				throw new Error(`Status Code ${res.status}`);
 			}
 
 			return res.json();
@@ -116,6 +118,7 @@ const runComparison = () => {
 			scoreTally[0]++;
 		}
 	});
+	console.log(scoreTally);
 };
 
 const applyComparisonColors = (lessThan, greaterThan) => {
@@ -172,8 +175,6 @@ const movieTemplate = (movieDetails) => {
 		imdbRating,
 		imdbVotes,
 	} = movieDetails;
-
-	console.log(movieDetails);
 
 	// Converting values
 	const dollars = parseInt(BoxOffice.replace(/\$/g, "").replace(/,/g, ""));

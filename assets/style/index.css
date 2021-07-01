@@ -366,6 +366,10 @@ p {
     padding: 0px 25px;
 }
 
+.banner p {
+    padding: 0 10px;
+}
+
 .landing h1 {
     font-size: 3rem;
 }
@@ -481,15 +485,8 @@ input:focus {
 }
 
 /* Compare */
-.compare-banner h1 {
-    padding-bottom: 5px;
-    width: fit-content;
-    margin: 0 auto 10px auto;
-}
-
-.compare-banner h1::after {
-    margin-top: 20px;
-    width: 400px;
+#compare .landing {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)), url(../images/compare-landing.JPEG) center/cover no-repeat;
 }
 
 .grid-container {
@@ -893,6 +890,11 @@ input:focus {
     .compare,
     .support {
         margin-top: 5rem;
+    }
+
+    #compare .banner h1::after {
+        margin-top: 20px;
+        width: 400px;
     }
 
     .grid-container {
