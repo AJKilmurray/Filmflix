@@ -297,25 +297,36 @@ const displayBackupTemplate = (Poster, Title, Genre, Plot) => {
 	<article class="not-found">
 		<p><span class="black-highlight">Warning!</span> Statistics could not be found for this film/show.</p>
 	</article>
-	<article class="comparison-item comparison-default">
-		<p class="title">Not Found</p>
-		<p>Awards</p>
-	</article>
-	<article class="comparison-item comparison-default">
-		<p class="title">Not Found</p>
-		<p>Box Office</p>
-	</article>
-	<article class="comparison-item comparison-default">
-		<p class="title">Not Found</p>
-		<p>Metascore</p>
-	</article>
-	<article class="comparison-item comparison-default">
-		<p class="title">Not Found</p>
-		<p>IMDb Rating</p>
-	</article>
-	<article class="comparison-item comparison-default">
-		<p class="title">Not Found</p>
-		<p>IMDb Votes</p>
-	</article>
+	<div class="comparison-items-container">
+		<article class="movie-win hide-element tally-card">
+			<p>Winner!</p>
+		</article>
+		<article class="movie-tie hide-element tally-card">
+			<p>Draw!</p>
+		</article>
+		<article class="movie-loss hide-element tally-card">
+			<p>Loser!</p>
+		</article>
+		<article class="comparison-item comparison-default">
+			<p class="title">Not Found</p>
+			<p>Awards</p>
+		</article>
+		<article class="comparison-item comparison-default">
+			<p class="title">Not Found</p>
+			<p>Box Office</p>
+		</article>
+		<article class="comparison-item comparison-default">
+			<p class="title">Not Found</p>
+			<p>Metascore</p>
+		</article>
+		<article class="comparison-item comparison-default">
+			<p class="title">Not Found</p>
+			<p>IMDb Rating</p>
+		</article>
+		<article class="comparison-item comparison-default">
+			<p class="title">Not Found</p>
+			<p>IMDb Votes</p>
+		</article>
+	</div>
 	`;
 };
