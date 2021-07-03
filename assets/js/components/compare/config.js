@@ -1,3 +1,19 @@
+const address = "http://127.0.0.1:5500";
+const keyJSON = "apikey.json";
+
+const apiKey = async () => {
+	return await fetch(`${address}/${keyJSON}`)
+		.then((res) => {
+			if (!res.ok) {
+				throw new Error(`Status Code ${res.status}`);
+			}
+
+			return res.json();
+		})
+		.then((data) => data.key)
+		.catch((err) => console.log(err));
+};
+
 const autoCompleteConfig = {
 	renderOption(movie) {
 		const { Poster, Year, Title } = movie;
@@ -12,8 +28,9 @@ const autoCompleteConfig = {
 		if (searchTerm.includes(" ")) {
 			searchTerm.replace(/\s/g, "+");
 		}
+		const key = await apiKey();
 		const response = await fetch(
-			`https://www.omdbapi.com/?apikey=39418887&s=${searchTerm}`
+			`https://www.omdbapi.com/?apikey=${key}&s=${searchTerm}`
 		)
 			.then((res) => {
 				if (!res.ok) {
