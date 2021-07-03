@@ -1,18 +1,4 @@
-const address = "http://127.0.0.1:5500";
-const keyJSON = "apikey.json";
-
-const apiKey = async () => {
-	return await fetch(`${address}/${keyJSON}`)
-		.then((res) => {
-			if (!res.ok) {
-				throw new Error(`Status Code ${res.status}`);
-			}
-
-			return res.json();
-		})
-		.then((data) => data.key)
-		.catch((err) => console.log(err));
-};
+import { address, keyJSON } from "../config.js";
 
 const autoCompleteConfig = {
 	renderOption(movie) {
