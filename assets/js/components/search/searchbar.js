@@ -38,5 +38,8 @@ const search = ({
 		adjustCardInfoHeight(resultCardInfo);
 
 		window.addEventListener("resize", adjustCardInfoHeight(resultCardInfo));
+
+		const assist = document.querySelector(".assist");
+		assist.classList.add("hide-element");
 	});
 };
