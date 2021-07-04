@@ -501,15 +501,23 @@ input:focus {
 .result-card {
     margin: 0 auto;
     width: fit-content;
-    box-shadow: var(--light-shadow);
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
+.result-card:hover {
+    cursor: pointer;
+}
+
 .result-card,
 .result-card img {
     width: 250px;
+    transition: background .3s linear;
+}
+
+.result-card img:hover {
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .result-card img {
@@ -933,6 +941,8 @@ input:focus {
 }
 
 @media screen and (min-width: 800px) {
+    /* Global */
+
     .navigation {
         height: auto !important;
     }
@@ -967,6 +977,8 @@ input:focus {
         font-size: 7rem;
     }
 
+    /* Home */
+
     .about,
     .search,
     .compare,
@@ -983,6 +995,14 @@ input:focus {
     .support {
         margin-top: 5rem;
     }
+
+    /* Search */
+
+    .search-results {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    /* Compare */
 
     #compare .banner h1::after {
         margin-top: 20px;
