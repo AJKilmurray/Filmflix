@@ -43,7 +43,6 @@ const searchbarConfig = {
 	},
 	adjustCardInfoHeight(cards) {
 		cards.forEach((card) => {
-			console.log(card);
 			card.style.marginTop = `-${card.offsetHeight}px`;
 		});
 	},
