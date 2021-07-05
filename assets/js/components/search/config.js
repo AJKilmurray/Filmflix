@@ -140,11 +140,35 @@ const renderSelectedMovie = (movie) => {
 
 	let formattedGenre;
 	if (Genre.includes(",")) {
-		formattedGenre = Genre.split(", ");
-		formattedGenre = formattedGenre
+		formattedGenre = Genre.split(", ")
 			.map((genre) => `<p class="movie-data-list-title">${genre}</p>`)
 			.join("");
 	}
+
+	let formattedAwards;
+	if (Awards.includes("Oscars")) {
+		formattedAwards = Awards.replace("Oscars. ", "Oscars & ")
+			.split(" & ")
+			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
+			.join("")
+			.replace(" total", "")
+			.replace("wins", "Wins")
+			.replace("nominations", "Nominations")
+			.replace(".", "");
+	} else if (Awards.includes("wins")) {
+		formattedAwards = Awards.split(" & ")
+			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
+			.join("")
+			.replace(".", "");
+	} else if (!Awards) {
+		formattedAwards = `<p class="movie-data-list-data-item">No Awards</p>`;
+	} else if (Awards) {
+		formattedAwards = `<p class="movie-data-list-data-item">${Awards}</p>`;
+	}
+
+	let formattedActors = Actors.split(", ")
+		.map((actor) => `<p class="movie-data-list-data-item">${actor}</p>`)
+		.join("");
 
 	const movieHTML = `
 		<div class="selected-background">
@@ -156,14 +180,15 @@ const renderSelectedMovie = (movie) => {
 				<div class="movie-data-grid">
 					<img src="${Poster}">
 					<div class="movie-data-details">
-						<ul class="movie-data-list>
-							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Genre:</h4> ${formattedGenre}</li>
-						<p>${Director}</p>
 						<p>${Plot}</p>
+						<ul class="movie-data-list>
+							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Genre</h4> ${formattedGenre}</li>
+							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Director</h4><p class="movie-data-list-data-item">${Director}</p></li>
+							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Awards</h4> ${formattedAwards}</li>
+							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Actors</h4> ${formattedActors}</li>
+						</ul>
 						<p>${Metascore}</p>
 						<p>${BoxOffice}</p>
-						<p>${Awards}</p>
-						<p>${Actors}</p>
 					</div>
 					<div class="imdb">
 						<p>${imdbRating}</p>

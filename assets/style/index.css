@@ -583,9 +583,21 @@ input:focus {
     grid-template-columns: auto 1fr;
 }
 
+.movie-data-list-item {
+    margin-bottom: 30px;
+}
+
 .movie-data-list-title,
-.movie-data-list-title {
+.movie-data-list-data-item {
     display: inline;
+}
+
+.movie-data-list-data-item {
+    background: var(--primary);
+    color: var(--filmflix-white);
+    padding: 10px 20px;
+    margin-left: 20px !important;
+    border-radius: 35px;
 }
 
 /* Compare */
