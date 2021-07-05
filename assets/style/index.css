@@ -256,6 +256,10 @@ p {
     color: var(--filmflix-black);
 }
 
+.gray-highlight {
+    color: var(--gray-4);
+}
+
 .hide-element {
     display: none !important;
 }
@@ -555,15 +559,33 @@ input:focus {
 
 .movie-data {
     background: var(--filmflix-white);
-    padding: 25px;
     border-radius: var(--radius);
     box-shadow: var(--light-shadow);
     overflow: auto;
     z-index: 5;
 }
 
-.movie-data p {
+.movie-data p,
+.movie-data h4 {
     margin: 0;
+}
+
+.movie-heading {
+    padding: 25px;
+    background: var(--filmflix-black);
+    color: var(--filmflix-white);
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-data-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.movie-data-list-title,
+.movie-data-list-title {
+    display: inline;
 }
 
 /* Compare */

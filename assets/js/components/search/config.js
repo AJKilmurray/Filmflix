@@ -134,24 +134,45 @@ const renderSelectedMovie = (movie) => {
 		Ratings,
 	} = movie;
 
+	const formattedRatings = Ratings.map((rating) => {
+		return `${rating.Source}: ${rating.Value}`;
+	});
+
+	let formattedGenre;
+	if (Genre.includes(",")) {
+		formattedGenre = Genre.split(", ");
+		formattedGenre = formattedGenre
+			.map((genre) => `<p class="movie-data-list-title">${genre}</p>`)
+			.join("");
+	}
+
 	const movieHTML = `
 		<div class="selected-background">
 			<article class="movie-data container">
-				<p>${Title}</p>
-				<p>${Year}</p>
-				<p>${Rated}</p>
-				<p>${Released}</p>
-				<img src="${Poster}">
-				<p>${Runtime}</p>
-				<p>${Genre}</p>
-				<p>${Director}</p>
-				<p>${Plot}</p>
-				<p>${Metascore}</p>
-				<p>${BoxOffice}</p>
-				<p>${Awards}</p>
-				<p>${Actors}</p>
-				<p>${imdbRating}</p>
-				<p>${imdbVotes}</p>
+				<header class="movie-heading">
+					<h4><span class="red-highlight">${Title}</span> <span class="gray-highlight">(</span>${Year}<span class="gray-highlight">)</span></h4>
+					<h4>Rated: <span class="red-highlight">${Rated}</span></h4>
+				</header>
+				<div class="movie-data-grid">
+					<img src="${Poster}">
+					<div class="movie-data-details">
+						<ul class="movie-data-list>
+							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Genre:</h4> ${formattedGenre}</li>
+						<p>${Director}</p>
+						<p>${Plot}</p>
+						<p>${Metascore}</p>
+						<p>${BoxOffice}</p>
+						<p>${Awards}</p>
+						<p>${Actors}</p>
+					</div>
+					<div class="imdb">
+						<p>${imdbRating}</p>
+						<p>${imdbVotes}</p>
+					</div>
+					<div class="ratings">
+						<p>${formattedRatings}</p>
+					</div>
+				</div>
 			</article>
 		</div>
 	`;
