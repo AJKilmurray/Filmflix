@@ -20,7 +20,7 @@ const search = ({
 			container.removeChild(container.lastChild);
 		}
 
-		const searchResults = await inputValidation(search);
+		const searchResults = await inputValidation(search, 2000);
 
 		if (!searchResults) {
 			return;
@@ -29,6 +29,7 @@ const search = ({
 		for (let result of searchResults) {
 			const resultItem = document.createElement("div");
 			resultItem.classList.add("result-card");
+
 			const resultContent = renderResults(result);
 			resultItem.insertAdjacentHTML("afterbegin", resultContent);
 
@@ -36,6 +37,13 @@ const search = ({
 		}
 		const resultCardInfo = document.querySelectorAll(".result-info");
 		adjustCardInfoHeight(resultCardInfo);
+
+		const resultCards = document.querySelectorAll(".result-card");
+		resultCards.forEach((card) => {
+			card.addEventListener("click", (event) => {
+				onResultSelect(event.currentTarget);
+			});
+		});
 
 		window.addEventListener("resize", adjustCardInfoHeight(resultCardInfo));
 

@@ -495,7 +495,8 @@ input:focus {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 0;
+    min-height: 60vh;
 }
 
 .result-card {
@@ -513,11 +514,12 @@ input:focus {
 .result-card,
 .result-card img {
     width: 250px;
-    transition: background .3s linear;
+    height: 370px;
+    transition: all .1s linear;
 }
 
-.result-card img:hover {
-    background: rgba(0, 0, 0, 0.6);
+.result-card:hover {
+    transform: scale(1.04);
 }
 
 .result-card img {
@@ -533,6 +535,34 @@ input:focus {
 
 .result-info h4,
 .result-info p {
+    margin: 0;
+}
+
+.result-info h4 {
+    color: var(--filmflix-white);
+    font-weight: 600;
+}
+
+.selected-background {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+}
+
+.movie-data {
+    background: var(--filmflix-white);
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--light-shadow);
+    overflow: auto;
+    z-index: 5;
+}
+
+.movie-data p {
     margin: 0;
 }
 
@@ -918,6 +948,71 @@ input:focus {
 }
 
 /* Media Queries [Largest --> Smallest] */
+@media screen and (min-width: 1350px) {
+    .search-results {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .search-results {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .search-results {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 805px) {
+    .search-results {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .searchbar {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .search-results {
+        grid-template-columns: 1fr;
+    }
+
+    .searchbar {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .search-input {
+        height: 125px;
+    }
+
+    .searchbar {
+        font-size: 1rem;
+        width: 200px;
+    }
+
+    .search-btn {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 310px) {
+    .search-btn {
+        padding: 10px;
+    }
+
+    .searchbar {
+        width: 150px;
+    }
+}
+
 @media screen and (min-width: 1150px) {
     .content {
         margin-top: 0;
@@ -997,10 +1092,6 @@ input:focus {
     }
 
     /* Search */
-
-    .search-results {
-        grid-template-columns: repeat(5, 1fr);
-    }
 
     /* Compare */
 

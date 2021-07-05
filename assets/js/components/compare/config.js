@@ -1,5 +1,3 @@
-import { address, keyJSON } from "../config.js";
-
 const autoCompleteConfig = {
 	renderOption(movie) {
 		const { Poster, Year, Title } = movie;
