@@ -133,9 +133,9 @@ const renderSelectedMovie = (movie) => {
 		Ratings,
 	} = movie;
 
-	const formattedRatings = Ratings.map((rating) => {
-		return `${rating.Source}: ${rating.Value}`;
-	});
+	const formattedRatings = Ratings.map(
+		(rating) => `<p>${rating.Source}: ${rating.Value}</p>`
+	).join("");
 
 	let formattedGenre;
 	if (Genre.includes(",")) {
@@ -189,10 +189,19 @@ const renderSelectedMovie = (movie) => {
 				</header>
 				<div class="movie-data-grid">
 					<div class="movie-data-details">
-						<article class="plot-items">
-							<h3>Plot</h3>
-							<p>${Plot}</p>
-						</article>
+						<section class="top-section">
+							<article class="plot-items">
+								<h3>Plot</h3>
+								<p>${Plot}</p>
+							</article>
+							<div class="ratings">
+								<h3>Ratings</h4>
+								<p>${formattedRatings}</p>
+								<p>Metascore: ${Metascore}</p>
+								<p>IMDb Rating: ${imdbRating}</p>
+								<p>IMDb Votes: ${imdbVotes}</p>
+							</div>
+						</section>
 						<div class="movie-data-list">
 							<ul class="movie-list-parent">
 								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Genres</h4> ${formattedGenre}</li>
@@ -207,15 +216,12 @@ const renderSelectedMovie = (movie) => {
 								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Actors</h4> ${formattedActors}</li>
 							</ul>
 						</div>
-						<p>${Metascore}</p>
-						<p>${BoxOffice}</p>
-					</div>
-					<div class="imdb">
-						<p>${imdbRating}</p>
-						<p>${imdbVotes}</p>
-					</div>
-					<div class="ratings">
-						<p>${formattedRatings}</p>
+						<div class="more-info">
+							<h3>More Information</h3>
+							<p>Box Office: ${BoxOffice} ($USD)</p>
+							<p>Release Date: ${Released}</p>
+							<p>Runtime: ${Runtime}</p>
+						</div>
 					</div>
 				</div>
 			</article>
