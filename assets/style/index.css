@@ -583,21 +583,58 @@ input:focus {
     grid-template-columns: auto 1fr;
 }
 
+.plot-items {
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.plot-items h3 {
+    width: fit-content;
+    border-bottom: 2px solid var(--filmflix-dark-red);
+}
+
+.plot-items p {
+    max-width: 400px;
+    color: var(--gray-6);
+}
+
+.movie-data-list {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    padding: 0 10px;
+}
+
+.movie-list-parent {
+    display: inline;
+    padding: 0 10px;
+}
+
+.movie-list-parent:nth-child(1) {
+    padding: 0 10px 0;
+}
+
 .movie-data-list-item {
     margin-bottom: 30px;
 }
 
-.movie-data-list-title,
-.movie-data-list-data-item {
-    display: inline;
+.movie-data-list-item h4 {
+    width: fit-content;
+    margin: 0 auto !important;
+    border-bottom: 2px solid var(--filmflix-dark-red);
+}
+
+.movie-data-list-title {
+    text-align: center;
 }
 
 .movie-data-list-data-item {
     background: var(--primary);
     color: var(--filmflix-white);
     padding: 10px 20px;
-    margin-left: 20px !important;
     border-radius: 35px;
+    width: fit-content;
+    margin: 20px auto 0 auto !important;
 }
 
 /* Compare */

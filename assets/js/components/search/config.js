@@ -119,7 +119,6 @@ const renderSelectedMovie = (movie) => {
 		Title,
 		Year,
 		Rated,
-		Poster,
 		Released,
 		Runtime,
 		Genre,
@@ -141,7 +140,7 @@ const renderSelectedMovie = (movie) => {
 	let formattedGenre;
 	if (Genre.includes(",")) {
 		formattedGenre = Genre.split(", ")
-			.map((genre) => `<p class="movie-data-list-title">${genre}</p>`)
+			.map((genre) => `<p class="movie-data-list-data-item">${genre}</p>`)
 			.join("");
 	}
 
@@ -159,11 +158,22 @@ const renderSelectedMovie = (movie) => {
 		formattedAwards = Awards.split(" & ")
 			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
 			.join("")
-			.replace(".", "");
+			.replace(".", "")
+			.replace("wins", "Wins");
 	} else if (!Awards) {
 		formattedAwards = `<p class="movie-data-list-data-item">No Awards</p>`;
+	} else if (Awards.includes(" & ")) {
+		formattedAwards = Awards.split(" & ")
+			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
+			.join("")
+			.replace("win", "Win")
+			.replace(".", "")
+			.replace("nominations", "Nominations");
 	} else if (Awards) {
-		formattedAwards = `<p class="movie-data-list-data-item">${Awards}</p>`;
+		formattedAwards = `<p class="movie-data-list-data-item">${Awards.replace(
+			"nominations",
+			"Nominations"
+		)}</p>`;
 	}
 
 	let formattedActors = Actors.split(", ")
@@ -178,15 +188,25 @@ const renderSelectedMovie = (movie) => {
 					<h4>Rated: <span class="red-highlight">${Rated}</span></h4>
 				</header>
 				<div class="movie-data-grid">
-					<img src="${Poster}">
 					<div class="movie-data-details">
-						<p>${Plot}</p>
-						<ul class="movie-data-list>
-							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Genre</h4> ${formattedGenre}</li>
-							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Director</h4><p class="movie-data-list-data-item">${Director}</p></li>
-							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Awards</h4> ${formattedAwards}</li>
-							<li class="movie-data-list-item"><h4 class="movie-data-list-title">Actors</h4> ${formattedActors}</li>
-						</ul>
+						<article class="plot-items">
+							<h3>Plot</h3>
+							<p>${Plot}</p>
+						</article>
+						<div class="movie-data-list">
+							<ul class="movie-list-parent">
+								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Genres</h4> ${formattedGenre}</li>
+							</ul>
+							<ul class="movie-list-parent">
+							 	<li class="movie-data-list-item"><h4 class="movie-data-list-title">Director</h4><p class="movie-data-list-data-item">${Director}</p></li>
+							</ul class="movie-list-parent">
+							<ul class="movie-list-parent">
+							 	<li class="movie-data-list-item"><h4 class="movie-data-list-title">Awards</h4> ${formattedAwards}</li>
+							</ul>
+							<ul class="movie-list-parent">
+								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Actors</h4> ${formattedActors}</li>
+							</ul>
+						</div>
 						<p>${Metascore}</p>
 						<p>${BoxOffice}</p>
 					</div>
@@ -214,7 +234,6 @@ const renderSelectedSeries = (series) => {
 		Plot,
 		Released,
 		Year,
-		Poster,
 		Title,
 		imdbRating,
 		imdbVotes,
