@@ -203,8 +203,8 @@ const renderSelectedSeries = (series) => {
 		totalSeasons,
 		Ratings,
 	} = series;
-
-	const formattedRatings = formatSeriesRatings(Ratings);
+	const imdbStats = [`Rating: ${imdbRating}`, `Votes: ${imdbVotes}`];
+	const formattedRatings = formatSeriesRatings(imdbStats);
 	const formattedGenre = formatGenre(Genre);
 	const formattedAwards = formatAwards(Awards);
 	const formattedActors = formatActors(Actors);
@@ -223,18 +223,13 @@ const renderSelectedSeries = (series) => {
 								<h3>Plot</h3>
 								<p>${Plot}</p>
 							</article>
-							<div class="ratings">
-								<h3>IMDb</h4>
-								<p><span class="black-highlight">IMDb Rating:</span> ${imdbRating}</p>
-								<p><span class="black-highlight">IMDb Votes:</span> ${imdbVotes}</p>
-							</div>
 						</section>
 						<div class="movie-data-list">
 							<ul class="movie-list-parent">
 								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Genres</h4> ${formattedGenre}</li>
 							</ul>
 							<ul class="movie-list-parent">
-								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Ratings</h4> ${formattedRatings}</li>
+								<li class="movie-data-list-item"><h4 class="movie-data-list-title">IMDb</h4> ${formattedRatings}</li>
 							</ul>
 							<ul class="movie-list-parent">
 							 	<li class="movie-data-list-item"><h4 class="movie-data-list-title">Awards</h4> ${formattedAwards}</li>
@@ -321,10 +316,7 @@ const formatRatings = (ratings) => {
 
 const formatSeriesRatings = (ratings) => {
 	return ratings
-		.map(
-			(rating) =>
-				`<p class="movie-data-list-data-item">${rating.Source}: ${rating.Value}</p>`
-		)
+		.map((rating) => `<p class="movie-data-list-data-item">${rating}</p>`)
 		.join("");
 };
 
