@@ -133,53 +133,10 @@ const renderSelectedMovie = (movie) => {
 		Ratings,
 	} = movie;
 
-	const formattedRatings = Ratings.map(
-		(rating) =>
-			`<p><span class="black-highlight">${rating.Source}:</span> ${rating.Value}</p>`
-	).join("");
-
-	let formattedGenre;
-	if (Genre.includes(",")) {
-		formattedGenre = Genre.split(", ")
-			.map((genre) => `<p class="movie-data-list-data-item">${genre}</p>`)
-			.join("");
-	}
-
-	let formattedAwards;
-	if (Awards.includes("Oscars")) {
-		formattedAwards = Awards.replace("Oscars. ", "Oscars & ")
-			.split(" & ")
-			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
-			.join("")
-			.replace(" total", "")
-			.replace("wins", "Wins")
-			.replace("nominations", "Nominations")
-			.replace(".", "");
-	} else if (Awards.includes("wins")) {
-		formattedAwards = Awards.split(" & ")
-			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
-			.join("")
-			.replace(".", "")
-			.replace("wins", "Wins");
-	} else if (!Awards) {
-		formattedAwards = `<p class="movie-data-list-data-item">No Awards</p>`;
-	} else if (Awards.includes(" & ")) {
-		formattedAwards = Awards.split(" & ")
-			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
-			.join("")
-			.replace("win", "Win")
-			.replace(".", "")
-			.replace("nominations", "Nominations");
-	} else if (Awards) {
-		formattedAwards = `<p class="movie-data-list-data-item">${Awards.replace(
-			"nominations",
-			"Nominations"
-		)}</p>`;
-	}
-
-	let formattedActors = Actors.split(", ")
-		.map((actor) => `<p class="movie-data-list-data-item">${actor}</p>`)
-		.join("");
+	const formattedRatings = formatRatings(Ratings);
+	const formattedGenre = formatGenre(Genre);
+	const formattedAwards = formatAwards(Awards);
+	const formattedActors = formatActors(Actors);
 
 	const movieHTML = `
 		<div class="selected-background">
@@ -233,7 +190,6 @@ const renderSelectedMovie = (movie) => {
 };
 
 const renderSelectedSeries = (series) => {
-	console.log(series);
 	const {
 		Actors,
 		Awards,
@@ -245,14 +201,20 @@ const renderSelectedSeries = (series) => {
 		imdbRating,
 		imdbVotes,
 		totalSeasons,
+		Ratings,
 	} = series;
+
+	const formattedRatings = formatSeriesRatings(Ratings);
+	const formattedGenre = formatGenre(Genre);
+	const formattedAwards = formatAwards(Awards);
+	const formattedActors = formatActors(Actors);
 
 	const seriesHTML = `
 	<div class="selected-background">
 			<article class="movie-data container">
 				<header class="movie-heading">
 					<h4><span class="red-highlight">${Title}</span> <span class="gray-highlight">(</span>${Year}<span class="gray-highlight">)</span></h4>
-					<h4>Rated: <span class="red-highlight">${Rated}</span></h4>
+					<h4>Seasons: <span class="red-highlight">${totalSeasons}</span></h4>
 				</header>
 				<div class="movie-data-grid">
 					<div class="movie-data-details">
@@ -262,9 +224,7 @@ const renderSelectedSeries = (series) => {
 								<p>${Plot}</p>
 							</article>
 							<div class="ratings">
-								<h3>Ratings</h4>
-								<p>${formattedRatings}</p>
-								<p><span class="black-highlight">Metascore:</span> ${Metascore}/100</p>
+								<h3>IMDb</h4>
 								<p><span class="black-highlight">IMDb Rating:</span> ${imdbRating}</p>
 								<p><span class="black-highlight">IMDb Votes:</span> ${imdbVotes}</p>
 							</div>
@@ -274,8 +234,8 @@ const renderSelectedSeries = (series) => {
 								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Genres</h4> ${formattedGenre}</li>
 							</ul>
 							<ul class="movie-list-parent">
-							 	<li class="movie-data-list-item"><h4 class="movie-data-list-title">Director</h4><p class="movie-data-list-data-item">${Director}</p></li>
-							</ul class="movie-list-parent">
+								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Ratings</h4> ${formattedRatings}</li>
+							</ul>
 							<ul class="movie-list-parent">
 							 	<li class="movie-data-list-item"><h4 class="movie-data-list-title">Awards</h4> ${formattedAwards}</li>
 							</ul>
@@ -285,9 +245,7 @@ const renderSelectedSeries = (series) => {
 						</div>
 						<div class="more-info">
 							<h3>More Information</h3>
-							<p>Box Office: ${BoxOffice} ($USD)</p>
 							<p>Release Date: ${Released}</p>
-							<p>Runtime: ${Runtime}</p>
 						</div>
 					</div>
 				</div>
@@ -296,6 +254,78 @@ const renderSelectedSeries = (series) => {
 
 	document.body.insertAdjacentHTML("afterbegin", seriesHTML);
 	onSelectionExit();
+};
+
+const formatActors = (actors) => {
+	return actors
+		.split(", ")
+		.map((actor) => `<p class="movie-data-list-data-item">${actor}</p>`)
+		.join("");
+};
+
+const formatAwards = (awards) => {
+	if (awards.includes("Oscars")) {
+		return awards
+			.replace("Oscars. ", "Oscars & ")
+			.split(" & ")
+			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
+			.join("")
+			.replace(" total", "")
+			.replace("wins", "Wins")
+			.replace("nominations", "Nominations")
+			.replace(".", "");
+	} else if (awards.includes("wins")) {
+		return awards
+			.split(" & ")
+			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
+			.join("")
+			.replace(".", "")
+			.replace("wins", "Wins");
+	} else if (!awards) {
+		return `<p class="movie-data-list-data-item">No Awards</p>`;
+	} else if (awards.includes(" & ")) {
+		return awards
+			.split(" & ")
+			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
+			.join("")
+			.replace("win", "Win")
+			.replace(".", "")
+			.replace("nominations", "Nominations");
+	} else if (awards) {
+		return `<p class="movie-data-list-data-item">${awards.replace(
+			"nominations",
+			"Nominations"
+		)}</p>`;
+	}
+};
+
+const formatGenre = (genres) => {
+	if (genres.includes(",")) {
+		return genres
+			.split(", ")
+			.map((genre) => `<p class="movie-data-list-data-item">${genre}</p>`)
+			.join("");
+	} else {
+		return genres;
+	}
+};
+
+const formatRatings = (ratings) => {
+	return ratings
+		.map(
+			(rating) =>
+				`<p><span class="black-highlight">${rating.Source}:</span> ${rating.Value}</p>`
+		)
+		.join("");
+};
+
+const formatSeriesRatings = (ratings) => {
+	return ratings
+		.map(
+			(rating) =>
+				`<p class="movie-data-list-data-item">${rating.Source}: ${rating.Value}</p>`
+		)
+		.join("");
 };
 
 const onSelectionExit = () => {
