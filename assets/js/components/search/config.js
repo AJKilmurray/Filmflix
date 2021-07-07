@@ -134,7 +134,8 @@ const renderSelectedMovie = (movie) => {
 	} = movie;
 
 	const formattedRatings = Ratings.map(
-		(rating) => `<p>${rating.Source}: ${rating.Value}</p>`
+		(rating) =>
+			`<p><span class="black-highlight">${rating.Source}:</span> ${rating.Value}</p>`
 	).join("");
 
 	let formattedGenre;
@@ -197,9 +198,9 @@ const renderSelectedMovie = (movie) => {
 							<div class="ratings">
 								<h3>Ratings</h4>
 								<p>${formattedRatings}</p>
-								<p>Metascore: ${Metascore}</p>
-								<p>IMDb Rating: ${imdbRating}</p>
-								<p>IMDb Votes: ${imdbVotes}</p>
+								<p><span class="black-highlight">Metascore:</span> ${Metascore}/100</p>
+								<p><span class="black-highlight">IMDb Rating:</span> ${imdbRating}</p>
+								<p><span class="black-highlight">IMDb Votes:</span> ${imdbVotes}</p>
 							</div>
 						</section>
 						<div class="movie-data-list">
@@ -248,20 +249,50 @@ const renderSelectedSeries = (series) => {
 
 	const seriesHTML = `
 	<div class="selected-background">
-		<article class="movie-data container">
-			<p>${Title}</p>
-			<p>${Year}</p>
-			<p>${Released}</p>
-			<img src="${Poster}">
-			<p>${Genre}</p>
-			<p>${Plot}</p>
-			<p>${Awards}</p>
-			<p>${Actors}</p>
-			<p>${imdbRating}</p>
-			<p>${imdbVotes}</p>
-			<p>${totalSeasons}</p>
-		</article>
-	</div>`;
+			<article class="movie-data container">
+				<header class="movie-heading">
+					<h4><span class="red-highlight">${Title}</span> <span class="gray-highlight">(</span>${Year}<span class="gray-highlight">)</span></h4>
+					<h4>Rated: <span class="red-highlight">${Rated}</span></h4>
+				</header>
+				<div class="movie-data-grid">
+					<div class="movie-data-details">
+						<section class="top-section">
+							<article class="plot-items">
+								<h3>Plot</h3>
+								<p>${Plot}</p>
+							</article>
+							<div class="ratings">
+								<h3>Ratings</h4>
+								<p>${formattedRatings}</p>
+								<p><span class="black-highlight">Metascore:</span> ${Metascore}/100</p>
+								<p><span class="black-highlight">IMDb Rating:</span> ${imdbRating}</p>
+								<p><span class="black-highlight">IMDb Votes:</span> ${imdbVotes}</p>
+							</div>
+						</section>
+						<div class="movie-data-list">
+							<ul class="movie-list-parent">
+								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Genres</h4> ${formattedGenre}</li>
+							</ul>
+							<ul class="movie-list-parent">
+							 	<li class="movie-data-list-item"><h4 class="movie-data-list-title">Director</h4><p class="movie-data-list-data-item">${Director}</p></li>
+							</ul class="movie-list-parent">
+							<ul class="movie-list-parent">
+							 	<li class="movie-data-list-item"><h4 class="movie-data-list-title">Awards</h4> ${formattedAwards}</li>
+							</ul>
+							<ul class="movie-list-parent">
+								<li class="movie-data-list-item"><h4 class="movie-data-list-title">Actors</h4> ${formattedActors}</li>
+							</ul>
+						</div>
+						<div class="more-info">
+							<h3>More Information</h3>
+							<p>Box Office: ${BoxOffice} ($USD)</p>
+							<p>Release Date: ${Released}</p>
+							<p>Runtime: ${Runtime}</p>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>`;
 
 	document.body.insertAdjacentHTML("afterbegin", seriesHTML);
 	onSelectionExit();
