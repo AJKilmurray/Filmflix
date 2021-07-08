@@ -58,6 +58,8 @@
     --gray-9: #191919;
     --black: #000;
 
+    --dark-theme: #121212;
+
     /* Green & Red Buttons */
     --green-1: #25bb32;
     --green-2: #6be675;
@@ -72,6 +74,7 @@
 
     /* Transition */
     --transition: all 0.3s linear;
+    --fast-transition: all 0.15s linear;
 
     /* Other */
     --spacing: 0.1rem;
@@ -137,7 +140,7 @@ body {
     background: var(--filmflix-white);
     line-height: 1.5;
     font-size: 0.875rem;
-    transition: background .15s linear;
+    transition: var(--fast-transition);
 }
 
 ul {
@@ -307,13 +310,14 @@ p {
 }
 
 .dark-theme {
-    background: var(--filmflix-black);
-    color: var(--filmflix-white);
+    background: var(--dark-theme) !important;
+    color: var(--filmflix-white) !important;
+    box-shadow: var(--dark-shadow) !important;
 }
 
 .light-theme {
-    background: var(--filmflix-white);
-    color: var(--filmflix-black);
+    background: var(--filmflix-white) !important;
+    color: var(--dark-theme) !important;
 }
 
 /* Navbar */
@@ -553,10 +557,12 @@ p {
     max-width: 800px;
     padding: 25px;
     margin-bottom: 5rem;
+    transition: var(--fast-transition);
 }
 
 .info-tab {
     padding-bottom: 2rem;
+    transition: var(--fast-transition);
 }
 
 .info-tab h1 {
@@ -873,12 +879,6 @@ input:focus {
 }
 
 /* Compare */
-#compare .landing {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 1))), url(../images/compare-landing.JPEG) center/cover no-repeat;
-    background: -o-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)), url(../images/compare-landing.JPEG) center/cover no-repeat;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)), url(../images/compare-landing.JPEG) center/cover no-repeat;
-}
-
 .grid-container {
     display: -ms-grid;
     display: grid;

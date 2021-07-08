@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // Things to change
 const infoTabs = document.querySelectorAll(".info-tab");
+const sections = document.querySelectorAll(".card");
 
 const readLocalStorage = () => {
 	const theme = localStorage.getItem("theme");
@@ -25,11 +26,25 @@ const readLocalStorage = () => {
 };
 
 const toggleToDarkTheme = () => {
-	document.body.style.backgroundColor = "#090909";
+	darkTheme(document.body);
+	infoTabs.forEach((tab) => darkTheme(tab));
+	sections.forEach((card) => darkTheme(card));
 };
 
 const toggleToLightTheme = () => {
-	document.body.style.backgroundColor = "white";
+	lightTheme(document.body);
+	infoTabs.forEach((tab) => lightTheme(tab));
+	sections.forEach((card) => lightTheme(card));
+};
+
+const lightTheme = (el) => {
+	el.classList.remove("dark-theme");
+	el.classList.add("light-theme");
+};
+
+const darkTheme = (el) => {
+	el.classList.remove("light-theme");
+	el.classList.add("dark-theme");
 };
 
 const changeTheme = () => {
