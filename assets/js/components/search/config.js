@@ -14,13 +14,12 @@ const searchbarConfig = {
 	async inputValidation(inputField) {
 		let inputValue = inputField.value;
 		if (!inputValue) {
-			return invalidInput(inputField);
+			return invalidInput(inputField, 1000);
 		}
 
 		const validateSearch = await attemptDataFetch(inputValue);
 		if (validateSearch.Error) {
-			searchNotFound(inputField, 2000);
-			inputField.value = validateSearch.Error;
+			searchNotFound(inputField, 1000, validateSearch.Error);
 			return false;
 		}
 		return validateSearch;
@@ -58,11 +57,15 @@ search({
 	...searchbarConfig,
 });
 
-const invalidInput = (inputField, timer = 2000) => {
-	inputField.style.backgroundColor = "#e66b6b";
+const invalidInput = (inputField, timer = 1000) => {
+	inputField.readOnly = true;
+	inputField.placeholder = "Invalid search!";
+	inputField.style.backgroundColor = "var(--primary-light-6)";
 	setTimeout(() => {
 		inputField.style.backgroundColor = "white";
-	}, 2000);
+		inputField.placeholder = "";
+		inputField.readOnly = false;
+	}, timer);
 };
 
 const attemptDataFetch = async (searchTerm) => {
@@ -85,10 +88,17 @@ const attemptDataFetch = async (searchTerm) => {
 		.catch((error) => console.log(error, this));
 };
 
-const searchNotFound = (inputField, timer = 2000) => {
-	inputField.style.backgroundColor = "#e66b6b";
+const searchNotFound = (inputField, timer = 1000, error) => {
+	inputField.readOnly = true;
+	const saveValue = inputField.value;
+	inputField.style.backgroundColor = "var(--primary-light-6)";
+	inputField.value = "";
+	inputField.placeholder = `${error}`;
 	setTimeout(() => {
 		inputField.style.backgroundColor = "white";
+		inputField.placeholder = "";
+		inputField.readOnly = false;
+		inputField.value = saveValue;
 	}, timer);
 };
 
@@ -269,6 +279,18 @@ const formatAwards = (awards) => {
 			.replace("wins", "Wins")
 			.replace("nominations", "Nominations")
 			.replace(".", "");
+	} else if (awards.includes("Oscar")) {
+		return awards
+			.split(". ")
+			.join(" & ")
+			.split(" & ")
+			.map((award) => `<p class="movie-data-list-data-item">${award}</p>`)
+			.join("")
+			.replace(".", "")
+			.replace("Nominated for 1 Oscar", "1 Oscar Nomination")
+			.replace("Another ", "")
+			.replace("wins", "Wins")
+			.replace("nominations", "Nominations");
 	} else if (awards.includes("wins")) {
 		return awards
 			.split(" & ")
