@@ -15,7 +15,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 	settingsBtn.addEventListener("click", () => {
-		console.log(sidebar);
 		toggleSidebar(sidebar, "sidebar-open");
 	});
 });
