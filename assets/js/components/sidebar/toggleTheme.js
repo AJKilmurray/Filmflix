@@ -18,7 +18,7 @@ let searchbar;
 const readLocalStorage = () => {
 	const theme = localStorage.getItem("theme");
 	if (theme === null) {
-		localStorage.setItem("theme", "light");
+		localStorage.setItem("theme", "dark");
 		toggleToLightTheme();
 	} else if (theme === "light") {
 		toggleToLightTheme();

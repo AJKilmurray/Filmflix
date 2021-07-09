@@ -80,12 +80,25 @@ const onMovieSelect = async (movie, displayContainer, side) => {
 
 	if (side === "left") {
 		leftMovie = movieData;
+		animateResult(displayContainer);
 	} else if (side === "right") {
 		rightMovie = movieData;
+		animateResult(displayContainer);
 	}
 
 	if (leftMovie && rightMovie) {
 		runComparison();
+	}
+};
+
+const animateResult = (container) => {
+	if (container.classList.contains("movie-move")) {
+		container.classList.remove("movie-move");
+		setTimeout(() => {
+			container.classList.add("movie-move");
+		}, 100);
+	} else if (!container.classList.contains("movie-move")) {
+		container.classList.add("movie-move");
 	}
 };
 
