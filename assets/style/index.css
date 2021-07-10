@@ -813,18 +813,23 @@ p {
     word-spacing: 0;
 }
 
-.redirect {
+.redirect,
+.bug-report {
     color: var(--filmflix-white);
     background: var(--filmflix-red);
 }
 
-.redirect:hover {
+.redirect:hover,
+.redirect:focus,
+.bug-report:hover,
+.bug-report:focus {
     color: var(--filmflix-white);
     background: var(--primary-light-4);
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
     transform: scale(1.05);
 }
+
 
 /* Search Page */
 .search-input {
