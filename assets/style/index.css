@@ -314,6 +314,10 @@ p {
     display: none !important;
 }
 
+.white-highlight {
+    color: var(--filmflix-white) !important;
+}
+
 .dark-theme {
     background: var(--dark-theme) !important;
     color: var(--filmflix-white) !important;
