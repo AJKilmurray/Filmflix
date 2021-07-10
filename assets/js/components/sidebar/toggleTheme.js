@@ -65,6 +65,11 @@ const sliderPosition = () => {
 	}
 };
 
+window.addEventListener("DOMContentLoaded", () => {
+	changeTheme();
+	moveSlider();
+});
+
 const moveSlider = () => {
 	const theme = localStorage.getItem("theme");
 	if (theme === "null" || theme === "light") {
