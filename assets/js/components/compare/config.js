@@ -45,6 +45,7 @@ createAutoComplete({
 	},
 	inputPlaceholder: "First movie",
 	inputID: "left-input-field",
+	side: "left",
 });
 
 createAutoComplete({
@@ -55,6 +56,7 @@ createAutoComplete({
 	},
 	inputPlaceholder: "Second movie",
 	inputID: "right-input-field",
+	side: "right",
 });
 
 let leftMovie;

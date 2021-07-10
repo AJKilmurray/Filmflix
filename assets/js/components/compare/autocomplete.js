@@ -6,9 +6,10 @@ const createAutoComplete = ({
 	fetchData,
 	inputPlaceholder,
 	inputID,
+	side,
 }) => {
 	root.innerHTML = `
-    <div class="compare-input">
+    <div class="compare-input ${side}">
 		<i class="fas fa-search fa-lg"></i><input id="${inputID}" type="text" class="compare-searchbar input-field" placeholder="${inputPlaceholder}">
     </div>
     <div class="dropdown">
