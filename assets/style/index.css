@@ -1,4 +1,11 @@
 /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+/*
 ================
 
     FONTS
@@ -401,6 +408,7 @@ p {
 
 .dark-theme .dropdown {
     background: var(--dark-theme);
+    -webkit-box-shadow: var(--dark-shadow);
     box-shadow: var(--dark-shadow);
 }
 
@@ -423,6 +431,7 @@ p {
 }
 
 .dark-theme .information-card {
+    -webkit-box-shadow: var(--dark-shadow);
     box-shadow: var(--dark-shadow);
 }
 
@@ -453,6 +462,7 @@ p {
 .nav-heading .logo {
     -webkit-animation: logo-fly-in .7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: logo-fly-in .7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation-delay: 0.3s;
     animation-delay: 0.3s;
 }
 
@@ -503,22 +513,27 @@ p {
 }
 
 .nav-list-item:first-child {
+    -webkit-animation-delay: 0.3s;
     animation-delay: 0.3s;
 }
 
 .nav-list-item:nth-child(2) {
+    -webkit-animation-delay: .6s;
     animation-delay: .6s;
 }
 
 .nav-list-item:nth-child(3) {
+    -webkit-animation-delay: .9s;
     animation-delay: .9s;
 }
 
 .nav-list-item:nth-child(4) {
+    -webkit-animation-delay: 1.2s;
     animation-delay: 1.2s;
 }
 
 .nav-list-item:nth-child(5) {
+    -webkit-animation-delay: 1.5s;
     animation-delay: 1.5s;
 }
 
@@ -568,7 +583,11 @@ p {
 
 .exit-sidebar {
     padding: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
 }
 
@@ -634,12 +653,20 @@ p {
 
 .js-scroll {
     opacity: 0;
+    -webkit-transition: opacity, -webkit-transform 0.5s linear;
+    transition: opacity, -webkit-transform 0.5s linear;
+    -o-transition: opacity, transform 0.5s linear;
     transition: opacity, transform 0.5s linear;
+    transition: opacity, transform 0.5s linear, -webkit-transform 0.5s linear;
+    -webkit-transform: translateX(-300%);
+    -ms-transform: translateX(-300%);
     transform: translateX(-300%);
 }
 
 .js-scroll.scrolled {
     opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
     transform: translateX(0);
 }
 
@@ -647,6 +674,8 @@ p {
     color: var(--filmflix-white);
     padding: 8px 20px !important;
     background: var(--primary);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     margin: 0 auto 10px auto !important;
     border-radius: var(--radius);
@@ -654,8 +683,12 @@ p {
 }
 
 .banner i {
+    -webkit-animation: arrow 0.8s ease-in both infinite;
     animation: arrow 0.8s ease-in both infinite;
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
     transition: var(--transition);
+    -webkit-animation-delay: 1.2s;
     animation-delay: 1.2s;
 }
 
@@ -693,6 +726,7 @@ p {
 .banner h1 {
     -webkit-animation: fly-in .7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: fly-in .7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
 }
 
@@ -703,6 +737,7 @@ p {
 .banner p:nth-child(2) {
     -webkit-animation: fly-in 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: fly-in 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation-delay: 0.8s;
     animation-delay: 0.8s;
 }
 
@@ -710,6 +745,7 @@ p {
     padding: 0 10px;
     -webkit-animation: img-fly-in .7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: img-fly-in .7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    -webkit-animation-delay: 0.8s;
     animation-delay: 0.8s;
 }
 
@@ -728,7 +764,9 @@ p {
 
 .about {
     margin-top: -30px !important;
+    -webkit-animation: about-entrance 0.7s cubic-bezier(0.215, 0.610, 0.355, 1) both;
     animation: about-entrance 0.7s cubic-bezier(0.215, 0.610, 0.355, 1) both;
+    -webkit-animation-delay: 1.2s;
     animation-delay: 1.2s;
 }
 
@@ -1175,20 +1213,28 @@ input:focus {
 .right-movie {
     padding: 5px;
     border-radius: var(--radius);
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
     transition: var(--transition);
     margin: 15px;
 }
 
 .left-movie {
+    -webkit-transform: translateX(-400%);
+    -ms-transform: translateX(-400%);
     transform: translateX(-400%);
 }
 
 .right-movie {
+    -webkit-transform: translateX(400%);
+    -ms-transform: translateX(400%);
     transform: translateX(400%);
     padding-bottom: 5rem;
 }
 
 .movie-move {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
     transform: translateX(0);
 }
 
@@ -1308,6 +1354,8 @@ input:focus {
     border-radius: var(--radius);
     -webkit-box-shadow: var(--light-shadow);
     box-shadow: var(--light-shadow);
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
     transition: var(--transition);
 }
 
@@ -1426,6 +1474,8 @@ input:focus {
     -webkit-box-shadow: var(--light-shadow);
     box-shadow: var(--light-shadow);
     margin-bottom: 1.5rem;
+    -webkit-transition: var(--transition);
+    -o-transition: var(--transition);
     transition: var(--transition);
 }
 
@@ -1549,11 +1599,14 @@ input:focus {
     padding: 25px 10px;
     margin-bottom: 50px;
     border-radius: var(--radius);
+    -webkit-box-shadow: var(--light-shadow);
     box-shadow: var(--light-shadow);
 }
 
 .information-card:first-child {
+    -webkit-animation: about-entrance 0.7s cubic-bezier(0.215, 0.610, 0.355, 1) both;
     animation: about-entrance 0.7s cubic-bezier(0.215, 0.610, 0.355, 1) both;
+    -webkit-animation-delay: 1.2s;
     animation-delay: 1.2s;
 }
 
@@ -1971,6 +2024,7 @@ input:focus {
     .about-landing figure img,
     .compare-landing figure img {
         width: 300px !important;
+        -webkit-box-shadow: 15px 15px 0px #090909;
         box-shadow: 15px 15px 0px #090909;
     }
 }
