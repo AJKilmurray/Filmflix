@@ -10,7 +10,7 @@ const debounce = (func, delay = 1000) => {
 	};
 };
 
-const address = "http://127.0.0.1:5500",
+const address = "https://ajkilmurray.github.io/Filmflix/",
 	keyJSON = "apikey.json";
 const apiKey = async () => {
 	return await fetch(`${address}/${keyJSON}`)
