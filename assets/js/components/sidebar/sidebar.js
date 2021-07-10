@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
 	const settingsBtn = document.getElementById("settings");
 	const sidebar = document.querySelector(".sidebar");
+	const closeSidebar = document.querySelector(".close-sidebar");
 
 	document.addEventListener("click", (e) => {
 		if (sidebar.classList.contains("sidebar-open")) {
@@ -16,5 +17,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	settingsBtn.addEventListener("click", () => {
 		toggleSidebar(sidebar, "sidebar-open");
+	});
+
+	closeSidebar.addEventListener("click", () => {
+		sidebar.classList.remove("sidebar-open");
 	});
 });
