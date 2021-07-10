@@ -9,17 +9,11 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
-// Things to change
-let infoTabs;
-let sections;
-let assist;
-let searchbar;
-
 const readLocalStorage = () => {
 	const theme = localStorage.getItem("theme");
 	if (theme === null) {
 		localStorage.setItem("theme", "dark");
-		toggleToLightTheme();
+		toggleToDarkTheme();
 	} else if (theme === "light") {
 		toggleToLightTheme();
 	} else if (theme === "dark") {
@@ -62,13 +56,10 @@ const sliderPosition = () => {
 	const theme = localStorage.getItem("theme");
 	if (theme === "dark") {
 		themeSwitch.classList.add("slide");
+	} else if (theme === "light") {
+		themeSwitch.classList.remove("slide");
 	}
 };
-
-window.addEventListener("DOMContentLoaded", () => {
-	changeTheme();
-	moveSlider();
-});
 
 const moveSlider = () => {
 	const theme = localStorage.getItem("theme");
