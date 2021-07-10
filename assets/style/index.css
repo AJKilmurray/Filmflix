@@ -326,6 +326,10 @@ p {
     color: var(--dark-theme) !important;
 }
 
+.fa-times {
+    cursor: pointer;
+}
+
 /* Dark Theme */
 
 .dark-theme .info-tab {
@@ -430,6 +434,15 @@ p {
 
 .dark-theme .information-card h1 {
     color: var(--filmflix-white);
+}
+
+.dark-theme .movie-data-list-data-item {
+    color: var(--filmflix-white);
+    background: var(--filmflix-black);
+}
+
+.dark-theme .movie-data-list-data-item:hover {
+    color: var(--primary);
 }
 
 /* Navbar */
