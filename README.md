@@ -1,6 +1,10 @@
 # Filmflix 1.0
 Find the statistics behind your favourite films and tv shows with ease! With this modern website, you can search and compare the statistics for each film and tv show out there.
 
+## API KEY
+Register for an API Key on https://omdbapi.com/ to be able to see the functionality of this website.
+Once you have successfully been given an API Key, please put your key into the `apikey.json` file located in the parent directory.
+
 ### Features:
 Here are some of the following features on Filmflix
 * Film & TV Show Search (With Statistics)
